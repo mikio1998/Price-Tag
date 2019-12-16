@@ -15,9 +15,9 @@ class Product {
     var size: String
     var color: String
     
-    var price: Int
+    var price: String
     
-    init(name: String, brand: String, size: String, color: String, price: Int) {
+    init(name: String, brand: String, size: String, color: String, price: String) {
         self.name = name
         self.brand = brand
         self.size = size

@@ -17,7 +17,16 @@ class productCell: UITableViewCell {
     @IBOutlet weak var sizeProduct: UILabel!
     @IBOutlet weak var colorProduct: UILabel!
     
-    
     @IBOutlet weak var quantity: UILabel!
+    
+    // For convenience
+    // When setting the cell's properties...
+    func setSale(sale:Product) {
+        nameProduct.text = sale.name
+        brandProduct.text = sale.brand
+        sizeProduct.text = sale.size
+        colorProduct.text = sale.color
+        quantity.text = "Under Construction"
+    }
     
 }

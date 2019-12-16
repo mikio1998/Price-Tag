@@ -107,81 +107,57 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         
                         // If get document successfully, then should run.
                         // From here...
-                        // 1. Extract the price field data
-                        // 2. Maybe add to the sales track.
+                        // 1. Extract the price field data. *DONE!*
+                        // 2. Add to the sales track DB. *DONE!*
                         if document.exists {
                             
                             let productName = document.get("name") as! String
                             let productBrand = document.get("brand") as! String
-                            //let productSize = document.get("size")
-                            //let productColor = document.get("color")
-                            
+                            let productSize = document.get("size") as! String
+                            let productColor = document.get("color") as! String
                             let productPrice = document.get("price") as! String
-                            
+                            // Title of alert to show brand and name:
                             let nameBrand = productBrand + "\n" + productName
                             
-                            //print(productPrice)
+                            // saleProduct object.
+                            // if successful, can be added to Sales Track from Alert button
+                            let saleProduct = Product(name: productName, brand: productBrand, size: productSize, color: productColor, price: productPrice)
                             
                             if object.type == AVMetadataObject.ObjectType.ean13
                             {
                                 let alert = UIAlertController(title: nameBrand, message: productPrice, preferredStyle: .alert)
-                                   // user option 1: retake the bar code
-                                   alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                                   // user option 2: copy the bar code to clipboard (string value of the object)
-                                   alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                                       UIPasteboard.general.string = object.stringValue
-                                   }))
+                                    // user option 1: Cancel the capture.
+                                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                                
+                                    // user option 2: Add it to the Sales track.
+                                    // use set, to add to collection called "sales track"
+                                    alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (nil) in
+                                        productDB.collection("sales track").document("\(objectStringVal)").setData([
+                                            "name": saleProduct.name,
+                                            "brand": saleProduct.brand,
+                                            "size": saleProduct.size,
+                                            "color": saleProduct.color,
+                                            "price": saleProduct.price
+                                        ]) { err in
+                                            if let err = err {
+                                                print("Error writing document: \(err)")
+                                            } else {
+                                                print("Document successfully written!")
+                                            }
+                                        }
+                                    }))
+                                
                                 // presenting the alert!
                                 self.present(alert, animated: true, completion: nil)
                             }
-                            
-                            
-                            
-                            
+                                     
                         // If doesn't exist, can't get the Document.
                         } else {
                             print("Document does not exist.")
                         }
                     }
                 }
-                
-                
-                
-                // find object.stringValue in the DB.
-//                productCollection.getDocuments { (document, err) in
-//                    // error handle
-//                    if let err = err {
-//                        print("Error getting documents: \(err)")
-//                    // Identify the document matching the barcode.
-//                    } else {
-//                        // Access documents
-//                        for document in document!.documents {
-//                            print(document.data())
-//                            // Find the matching product.
-//
-//
-//                        }
-//
-//
-//                    }
-//                }
-                
-                
-                // check if ObjectType is ean13 barcode.
-//                if object.type == AVMetadataObject.ObjectType.ean13
-//                {
-//                    let alert = UIAlertController(title: "BarCode", message: object.stringValue, preferredStyle: .alert)
-//                       // user option 1: retake the bar code
-//                       alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-//                       // user option 2: copy the bar code to clipboard (string value of the object)
-//                       alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-//                           UIPasteboard.general.string = object.stringValue
-//                       }))
-//
-//                    // presenting the alert!
-//                    present(alert, animated: true, completion: nil)
-//                }
-                
+
                 
                 
             }
