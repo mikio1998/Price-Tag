@@ -16,6 +16,9 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseDatabase
+
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -72,9 +75,18 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
     }
     
+    
+    
     // This func is called whenever we have some output...
     // Will process the output.
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
+        // Create instance of DataBase
+        let productDB = Firestore.firestore()
+        // Create instance of products collection
+        let productCollection = productDB.collection("products")
+
+        
         // check if metadataObjects is not empty
         if metadataObjects != nil && metadataObjects.count != 0
         {
@@ -83,36 +95,92 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             {
                 print(object.stringValue!)
                 
-                // Check if the object is type: qr
-                if object.type == AVMetadataObject.ObjectType.qr
-                {
-                    // here, decide what to do with the recieved data.
-                    // eg. set an alert, presenting the object's stringValue...
-                    let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
-                    // user option 1: retake the QR code
-                    alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                    // user option 2: copy the QR code to clipboard (string value of the object)
-                    alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                        UIPasteboard.general.string = object.stringValue
-                    }))
-                    
-                 // presenting the alert!
-                 present(alert, animated: true, completion: nil)
+                // Do this to input into productDocument parameter
+                let objectStringVal = object.stringValue!
+                
+                // Create instance of target document, (Assuming it's in the DB)
+                let productDocument = productCollection.document(objectStringVal)
+
+                // Try get the document with object.stringvalue
+                productDocument.getDocument { (document, err) in
+                    if let document = document {
+                        
+                        // If get document successfully, then should run.
+                        // From here...
+                        // 1. Extract the price field data
+                        // 2. Maybe add to the sales track.
+                        if document.exists {
+                            
+                            let productName = document.get("name") as! String
+                            let productBrand = document.get("brand") as! String
+                            //let productSize = document.get("size")
+                            //let productColor = document.get("color")
+                            
+                            let productPrice = document.get("price") as! String
+                            
+                            let nameBrand = productBrand + "\n" + productName
+                            
+                            //print(productPrice)
+                            
+                            if object.type == AVMetadataObject.ObjectType.ean13
+                            {
+                                let alert = UIAlertController(title: nameBrand, message: productPrice, preferredStyle: .alert)
+                                   // user option 1: retake the bar code
+                                   alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
+                                   // user option 2: copy the bar code to clipboard (string value of the object)
+                                   alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
+                                       UIPasteboard.general.string = object.stringValue
+                                   }))
+                                // presenting the alert!
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            
+                            
+                            
+                            
+                        // If doesn't exist, can't get the Document.
+                        } else {
+                            print("Document does not exist.")
+                        }
+                    }
                 }
-                    
-                else if object.type == AVMetadataObject.ObjectType.ean13
-                {
-                    let alert = UIAlertController(title: "BarCode", message: object.stringValue, preferredStyle: .alert)
-                       // user option 1: retake the QR code
-                       alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                       // user option 2: copy the QR code to clipboard (string value of the object)
-                       alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                           UIPasteboard.general.string = object.stringValue
-                       }))
-                       
-                    // presenting the alert!
-                    present(alert, animated: true, completion: nil)
-                }
+                
+                
+                
+                // find object.stringValue in the DB.
+//                productCollection.getDocuments { (document, err) in
+//                    // error handle
+//                    if let err = err {
+//                        print("Error getting documents: \(err)")
+//                    // Identify the document matching the barcode.
+//                    } else {
+//                        // Access documents
+//                        for document in document!.documents {
+//                            print(document.data())
+//                            // Find the matching product.
+//
+//
+//                        }
+//
+//
+//                    }
+//                }
+                
+                
+                // check if ObjectType is ean13 barcode.
+//                if object.type == AVMetadataObject.ObjectType.ean13
+//                {
+//                    let alert = UIAlertController(title: "BarCode", message: object.stringValue, preferredStyle: .alert)
+//                       // user option 1: retake the bar code
+//                       alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
+//                       // user option 2: copy the bar code to clipboard (string value of the object)
+//                       alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
+//                           UIPasteboard.general.string = object.stringValue
+//                       }))
+//
+//                    // presenting the alert!
+//                    present(alert, animated: true, completion: nil)
+//                }
                 
                 
                 

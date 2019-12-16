@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DE02B3D7BC488755CE47778 /* Pods_nakataPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */; };
 		C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2523A616AE0078F0F0 /* AppDelegate.swift */; };
 		C1556F2823A616AE0078F0F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */; };
 		C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2923A616AE0078F0F0 /* CameraViewController.swift */; };
@@ -15,9 +16,13 @@
 		C1556F3123A616AF0078F0F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1556F3023A616AF0078F0F0 /* Assets.xcassets */; };
 		C1556F3423A616AF0078F0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1556F3223A616AF0078F0F0 /* LaunchScreen.storyboard */; };
 		C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F3C23A6199A0078F0F0 /* ProductCell.swift */; };
+		C1556F3F23A73FB40078F0F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F3E23A73FB40078F0F0 /* Constants.swift */; };
+		C1556F4123A7498B0078F0F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nakataPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.release.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.release.xcconfig"; sourceTree = "<group>"; };
 		C1556F2223A616AE0078F0F0 /* nakataPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakataPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1556F2523A616AE0078F0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,9 @@
 		C1556F3323A616AF0078F0F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1556F3523A616AF0078F0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1556F3C23A6199A0078F0F0 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C1556F3E23A73FB40078F0F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.debug.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE02B3D7BC488755CE47778 /* Pods_nakataPrice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B14351A4F34093F16C291FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */,
+				A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C1556F1923A616AE0078F0F0 = {
 			isa = PBXGroup;
 			children = (
 				C1556F2423A616AE0078F0F0 /* nakataPrice */,
 				C1556F2323A616AE0078F0F0 /* Products */,
+				8B14351A4F34093F16C291FC /* Pods */,
+				E98A6558D3D022E27B4B06B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,11 +83,13 @@
 				C1556F3B23A616EC0078F0F0 /* Controllers */,
 				C1556F2523A616AE0078F0F0 /* AppDelegate.swift */,
 				C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */,
+				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
+				C1556F3E23A73FB40078F0F0 /* Constants.swift */,
 				C1556F2D23A616AE0078F0F0 /* Main.storyboard */,
 				C1556F3023A616AF0078F0F0 /* Assets.xcassets */,
 				C1556F3223A616AF0078F0F0 /* LaunchScreen.storyboard */,
 				C1556F3523A616AF0078F0F0 /* Info.plist */,
-				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
+				C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */,
 			);
 			path = nakataPrice;
 			sourceTree = "<group>";
@@ -81,6 +103,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		E98A6558D3D022E27B4B06B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1556F3823A616AF0078F0F0 /* Build configuration list for PBXNativeTarget "nakataPrice" */;
 			buildPhases = (
+				06FBF8BB0B57F19EE38066CC /* [CP] Check Pods Manifest.lock */,
 				C1556F1E23A616AE0078F0F0 /* Sources */,
 				C1556F1F23A616AE0078F0F0 /* Frameworks */,
 				C1556F2023A616AE0078F0F0 /* Resources */,
+				013C9BD58E4BC01022AC4AA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,12 +172,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1556F3423A616AF0078F0F0 /* LaunchScreen.storyboard in Resources */,
+				C1556F4123A7498B0078F0F0 /* GoogleService-Info.plist in Resources */,
 				C1556F3123A616AF0078F0F0 /* Assets.xcassets in Resources */,
 				C1556F2F23A616AE0078F0F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		013C9BD58E4BC01022AC4AA1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		06FBF8BB0B57F19EE38066CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nakataPrice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1556F1E23A616AE0078F0F0 /* Sources */ = {
@@ -157,6 +232,7 @@
 				C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */,
 				C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */,
 				C1556F2823A616AE0078F0F0 /* SceneDelegate.swift in Sources */,
+				C1556F3F23A73FB40078F0F0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +374,7 @@
 		};
 		C1556F3923A616AF0078F0F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +393,7 @@
 		};
 		C1556F3A23A616AF0078F0F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

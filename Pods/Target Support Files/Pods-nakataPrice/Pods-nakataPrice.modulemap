@@ -1,0 +1,6 @@
+framework module Pods_nakataPrice {
+  umbrella header "Pods-nakataPrice-umbrella.h"
+
+  export *
+  module * { export * }
+}
