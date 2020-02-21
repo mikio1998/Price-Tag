@@ -75,7 +75,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
     }
     
-    
+
     
     // This func is called whenever we have some output...
     // Will process the output.
@@ -85,6 +85,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         let productDB = Firestore.firestore()
         // Create instance of products collection
         let productCollection = productDB.collection("products")
+        let salesCollection = productDB.collection("sales track")
 
         
         // check if metadataObjects is not empty
@@ -116,12 +117,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                             let productSize = document.get("size") as! String
                             let productColor = document.get("color") as! String
                             let productPrice = document.get("price") as! String
+                            let productId = document.get("id") as! String
+                            let productQuantity = document.get("quantity") as! Int
                             // Title of alert to show brand and name:
                             let nameBrand = productBrand + "\n" + productName
                             
                             // saleProduct object.
                             // if successful, can be added to Sales Track from Alert button
-                            let saleProduct = Product(name: productName, brand: productBrand, size: productSize, color: productColor, price: productPrice)
+                            let saleProduct = Product(name: productName, brand: productBrand, size: productSize, color: productColor, price: productPrice, id: productId, quantity: productQuantity)
                             
                             if object.type == AVMetadataObject.ObjectType.ean13
                             {
@@ -131,21 +134,74 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                                 
                                     // user option 2: Add it to the Sales track.
                                     // use set, to add to collection called "sales track"
-                                    alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (nil) in
-                                        productDB.collection("sales track").document("\(objectStringVal)").setData([
-                                            "name": saleProduct.name,
-                                            "brand": saleProduct.brand,
-                                            "size": saleProduct.size,
-                                            "color": saleProduct.color,
-                                            "price": saleProduct.price
-                                        ]) { err in
-                                            if let err = err {
-                                                print("Error writing document: \(err)")
-                                            } else {
-                                                print("Document successfully written!")
-                                            }
+                                    // MARK: TODO: Conditional
+                                    // MARK: If already exists, just change the quantity + 1
+                                    
+                                
+                                
+                                let salesRef = salesCollection.document("\(saleProduct.id)")
+                                
+                                salesRef.getDocument { (document, error) in
+
+                                    if let document = document {
+
+                                        // If the documet is already in Sales Track
+                                        if document.exists{
+
+                                            print("Document data: \(String(describing: document.data()))")
+                                            
+                                            // Temporary holder of product quantity
+                                            let tempQuantity: Int = document.get("quantity") as! Int
+
+                                            
+                                            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (nil) in
+                                                productDB.collection("sales track").document("\(objectStringVal)").updateData([
+                                                    "quantity" : tempQuantity + 1
+                                                ]) { err in
+                                                    if let err = err {
+                                                        print("Error writing document: \(err)")
+                                                    } else {
+                                                        print("Document successfully written!")
+                                                        // MARK: HERE lol
+                                                        // MARK: What to do with this...
+                                                        // Nah this resolved, don't worry.
+
+                                                        
+                                                    }
+                                                }
+                                            
+                                            }))
+
+
+                                        // If the document is not yet in Sales Track
+                                        } else {
+                                            print("Document does not exist, could be added to Sales Track")
+
+                                            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (nil) in
+                                                productDB.collection("sales track").document("\(objectStringVal)").setData([
+                                                    "name": saleProduct.name,
+                                                    "brand": saleProduct.brand,
+                                                    "size": saleProduct.size,
+                                                    "color": saleProduct.color,
+                                                    "price": saleProduct.price,
+                                                    "id": saleProduct.id,
+                                                    "quantity": saleProduct.quantity
+
+                                                ]) { err in
+                                                    if let err = err {
+                                                        print("Error writing document: \(err)")
+                                                    } else {
+                                                        print("Document successfully written!")
+                                                    }
+                                                }
+                                            }))
+
+
+
                                         }
-                                    }))
+                                        
+                                    }
+                                }
                                 
                                 // presenting the alert!
                                 self.present(alert, animated: true, completion: nil)
@@ -153,6 +209,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                                      
                         // If doesn't exist, can't get the Document.
                         } else {
+                            let alert = UIAlertController(title: "404", message: "Product not registered.", preferredStyle: .alert)
+                            // user option 1: Cancel the capture.
+                            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
                             print("Document does not exist.")
                         }
                     }

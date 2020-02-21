@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7DE02B3D7BC488755CE47778 /* Pods_nakataPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */; };
+		8863219EA68AFD1DC2B0E63E /* Pods_nakataPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */; };
+		C145D80223F651060025F490 /* ManualAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80123F651060025F490 /* ManualAdd.swift */; };
+		C145D80623F670260025F490 /* ManualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80523F670260025F490 /* ManualCell.swift */; };
 		C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2523A616AE0078F0F0 /* AppDelegate.swift */; };
 		C1556F2823A616AE0078F0F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */; };
 		C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2923A616AE0078F0F0 /* CameraViewController.swift */; };
@@ -18,11 +20,14 @@
 		C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F3C23A6199A0078F0F0 /* ProductCell.swift */; };
 		C1556F3F23A73FB40078F0F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F3E23A73FB40078F0F0 /* Constants.swift */; };
 		C1556F4123A7498B0078F0F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */; };
+		C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E6B16123FBD5FD00FC184D /* AddingScript.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nakataPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nakataPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.release.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.release.xcconfig"; sourceTree = "<group>"; };
+		C145D80123F651060025F490 /* ManualAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAdd.swift; sourceTree = "<group>"; };
+		C145D80523F670260025F490 /* ManualCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCell.swift; sourceTree = "<group>"; };
 		C1556F2223A616AE0078F0F0 /* nakataPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakataPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1556F2523A616AE0078F0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +40,7 @@
 		C1556F3C23A6199A0078F0F0 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		C1556F3E23A73FB40078F0F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C1E6B16123FBD5FD00FC184D /* AddingScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingScript.swift; sourceTree = "<group>"; };
 		D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.debug.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DE02B3D7BC488755CE47778 /* Pods_nakataPrice.framework in Frameworks */,
+				8863219EA68AFD1DC2B0E63E /* Pods_nakataPrice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,15 @@
 				A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C145D80323F66FC50025F490 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
+				C145D80523F670260025F490 /* ManualCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C1556F1923A616AE0078F0F0 = {
@@ -80,10 +95,11 @@
 		C1556F2423A616AE0078F0F0 /* nakataPrice */ = {
 			isa = PBXGroup;
 			children = (
+				C145D80323F66FC50025F490 /* Cells */,
 				C1556F3B23A616EC0078F0F0 /* Controllers */,
 				C1556F2523A616AE0078F0F0 /* AppDelegate.swift */,
+				C1E6B16123FBD5FD00FC184D /* AddingScript.swift */,
 				C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */,
-				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
 				C1556F3E23A73FB40078F0F0 /* Constants.swift */,
 				C1556F2D23A616AE0078F0F0 /* Main.storyboard */,
 				C1556F3023A616AF0078F0F0 /* Assets.xcassets */,
@@ -99,6 +115,7 @@
 			children = (
 				C1556F2923A616AE0078F0F0 /* CameraViewController.swift */,
 				C1556F2B23A616AE0078F0F0 /* SalesViewController.swift */,
+				C145D80123F651060025F490 /* ManualAdd.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -106,7 +123,7 @@
 		E98A6558D3D022E27B4B06B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0ADBEF7311E1205B6D62B5ED /* Pods_nakataPrice.framework */,
+				5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,7 +139,7 @@
 				C1556F1E23A616AE0078F0F0 /* Sources */,
 				C1556F1F23A616AE0078F0F0 /* Frameworks */,
 				C1556F2023A616AE0078F0F0 /* Resources */,
-				013C9BD58E4BC01022AC4AA1 /* [CP] Embed Pods Frameworks */,
+				4CCCF23A54B240843CAD1A2B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,23 +198,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		013C9BD58E4BC01022AC4AA1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		06FBF8BB0B57F19EE38066CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,6 +220,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4CCCF23A54B240843CAD1A2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nakataPrice/Pods-nakataPrice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -228,7 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1556F2C23A616AE0078F0F0 /* SalesViewController.swift in Sources */,
+				C145D80623F670260025F490 /* ManualCell.swift in Sources */,
 				C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */,
+				C145D80223F651060025F490 /* ManualAdd.swift in Sources */,
+				C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */,
 				C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */,
 				C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */,
 				C1556F2823A616AE0078F0F0 /* SceneDelegate.swift in Sources */,
@@ -377,6 +397,7 @@
 			baseConfigurationReference = D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FYH7U52GMV;
 				INFOPLIST_FILE = nakataPrice/Info.plist;
@@ -396,6 +417,7 @@
 			baseConfigurationReference = A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FYH7U52GMV;
 				INFOPLIST_FILE = nakataPrice/Info.plist;
