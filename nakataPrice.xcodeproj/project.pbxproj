@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8863219EA68AFD1DC2B0E63E /* Pods_nakataPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */; };
+		C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D64D724039F0200349F2D /* MenuViewController.swift */; };
+		C10D64DA2403A62400349F2D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D64D92403A62400349F2D /* MenuCell.swift */; };
 		C145D80223F651060025F490 /* ManualAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80123F651060025F490 /* ManualAdd.swift */; };
 		C145D80623F670260025F490 /* ManualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80523F670260025F490 /* ManualCell.swift */; };
 		C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2523A616AE0078F0F0 /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nakataPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.release.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.release.xcconfig"; sourceTree = "<group>"; };
+		C10D64D724039F0200349F2D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C10D64D92403A62400349F2D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		C145D80123F651060025F490 /* ManualAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAdd.swift; sourceTree = "<group>"; };
 		C145D80523F670260025F490 /* ManualCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCell.swift; sourceTree = "<group>"; };
 		C1556F2223A616AE0078F0F0 /* nakataPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakataPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,11 +71,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C10D64D624039E4300349F2D /* ShopViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C10D64D724039F0200349F2D /* MenuViewController.swift */,
+				C1560A372402AE3E00D61072 /* ShopVewController.swift */,
+			);
+			path = ShopViewController;
+			sourceTree = "<group>";
+		};
 		C145D80323F66FC50025F490 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
 				C145D80523F670260025F490 /* ManualCell.swift */,
+				C10D64D92403A62400349F2D /* MenuCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -97,8 +111,8 @@
 		C1556F2423A616AE0078F0F0 /* nakataPrice */ = {
 			isa = PBXGroup;
 			children = (
-				C145D80323F66FC50025F490 /* Cells */,
 				C1556F3B23A616EC0078F0F0 /* Controllers */,
+				C145D80323F66FC50025F490 /* Cells */,
 				C1556F2523A616AE0078F0F0 /* AppDelegate.swift */,
 				C1E6B16123FBD5FD00FC184D /* AddingScript.swift */,
 				C1556F2723A616AE0078F0F0 /* SceneDelegate.swift */,
@@ -115,10 +129,10 @@
 		C1556F3B23A616EC0078F0F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C10D64D624039E4300349F2D /* ShopViewController */,
 				C1556F2923A616AE0078F0F0 /* CameraViewController.swift */,
 				C1556F2B23A616AE0078F0F0 /* SalesViewController.swift */,
 				C145D80123F651060025F490 /* ManualAdd.swift */,
-				C1560A372402AE3E00D61072 /* ShopVewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -249,8 +263,10 @@
 			files = (
 				C1560A382402AE3E00D61072 /* ShopVewController.swift in Sources */,
 				C1556F2C23A616AE0078F0F0 /* SalesViewController.swift in Sources */,
+				C10D64DA2403A62400349F2D /* MenuCell.swift in Sources */,
 				C145D80623F670260025F490 /* ManualCell.swift in Sources */,
 				C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */,
+				C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */,
 				C145D80223F651060025F490 /* ManualAdd.swift in Sources */,
 				C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */,
 				C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */,

@@ -7,19 +7,24 @@
 //
 
 import Foundation
+import UIKit
 import Firebase
 import FirebaseDatabase
 
 class ShopViewController: UIViewController {
     
     
-    
+    @IBOutlet weak var menuCollection: UIView!
+
+    @IBOutlet weak var shopCollection: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
+    
+    
     
     
     
