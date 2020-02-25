@@ -67,11 +67,15 @@ class ViewModelManager {
     
     
     let data: [ViewModel] = [
-        (menuTitle: "Menu-1", content: "コンテンツ1",  themeColor: UIColor.red),
-        (menuTitle: "メニュー2", content: "コンテンツ2",  themeColor: UIColor.green),
-        (menuTitle: "メニュー3", content: "コンテンツ3",  themeColor: UIColor.purple),
-        (menuTitle: "メニュー4", content: "コンテンツ4",  themeColor: UIColor.yellow),
-        (menuTitle: "メニュー5", content: "コンテンツ5",  themeColor: UIColor.cyan),
-        (menuTitle: "メニュー6", content: "コンテンツ6",  themeColor: UIColor.orange),
+        (menuTitle: "Alpha Industres", content: "コンテンツ1", themeColor: UIColor.red),
+        (menuTitle: "Avirex", content: "コンテンツ2", themeColor: UIColor.green),
+        (menuTitle: "Valley Apparel", content: "コンテンツ3", themeColor: UIColor.purple),
+        (menuTitle: "Helikon Tex", content: "コンテンツ4", themeColor: UIColor.yellow),
+        (menuTitle: "TRU-SPEC", content: "コンテンツ5", themeColor: UIColor.cyan),
+        (menuTitle: "Sessler", content: "コンテンツ6", themeColor: UIColor.orange),
+        (menuTitle: "Morgan", content: "コンテンツ6", themeColor: UIColor.brown),
+        (menuTitle: "J-TECH", content: "コンテンツ6", themeColor: UIColor.darkGray),
+        (menuTitle: "Bates", content: "コンテンツ6", themeColor: UIColor.magenta),
+        (menuTitle: "Rothco", content: "コンテンツ6", themeColor: UIColor.red),
     ]
 }
