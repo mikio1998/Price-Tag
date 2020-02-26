@@ -12,7 +12,7 @@
 
 
 
-    // MARK: THIS SHITT
+    // MARK: Insert this coding in some action, for personal convenience when adding shop data to my DB. 
     
     
 //    func sendToDB() {

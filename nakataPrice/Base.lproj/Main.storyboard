@@ -308,14 +308,14 @@
                                 <rect key="frame" x="0.0" y="58" width="414" height="89"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="Ad2-W8-DbR" kind="embed" id="R2p-2J-S9T"/>
+                                    <segue destination="Ad2-W8-DbR" kind="embed" identifier="embedMenuViewController" id="R2p-2J-S9T"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ujL-cT-bEv">
                                 <rect key="frame" x="0.0" y="155" width="414" height="459"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="8lz-lH-GRc" kind="embed" id="Ry8-uC-ZUx"/>
+                                    <segue destination="8lz-lH-GRc" kind="embed" identifier="embedPageViewController" id="Ry8-uC-ZUx"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -328,10 +328,10 @@
             </objects>
             <point key="canvasLocation" x="1076.8115942028987" y="-960.26785714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Page View Controller-->
         <scene sceneID="LtI-h7-dYK">
             <objects>
-                <viewController id="8lz-lH-GRc" sceneMemberID="viewController">
+                <viewController id="8lz-lH-GRc" customClass="UIPageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfy-tH-vcY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="459"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
