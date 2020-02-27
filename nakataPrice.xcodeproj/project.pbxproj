@@ -24,6 +24,7 @@
 		C1556F4123A7498B0078F0F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */; };
 		C1560A382402AE3E00D61072 /* ShopVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1560A372402AE3E00D61072 /* ShopVewController.swift */; };
 		C1E52F13240691430018C9B2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E52F12240691430018C9B2 /* ContainerViewController.swift */; };
+		C1E52F15240695F70018C9B2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E52F14240695F70018C9B2 /* ContentViewController.swift */; };
 		C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E6B16123FBD5FD00FC184D /* AddingScript.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1560A372402AE3E00D61072 /* ShopVewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVewController.swift; sourceTree = "<group>"; };
 		C1E52F12240691430018C9B2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		C1E52F14240695F70018C9B2 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		C1E6B16123FBD5FD00FC184D /* AddingScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingScript.swift; sourceTree = "<group>"; };
 		D5FB3F9B36B7BCCA5FA7A389 /* Pods-nakataPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.debug.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				C10D64D724039F0200349F2D /* MenuViewController.swift */,
 				C1560A372402AE3E00D61072 /* ShopVewController.swift */,
 				C1E52F12240691430018C9B2 /* ContainerViewController.swift */,
+				C1E52F14240695F70018C9B2 /* ContentViewController.swift */,
 			);
 			path = ShopViewController;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C10D64DA2403A62400349F2D /* MenuCell.swift in Sources */,
 				C145D80623F670260025F490 /* ManualCell.swift in Sources */,
 				C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */,
+				C1E52F15240695F70018C9B2 /* ContentViewController.swift in Sources */,
 				C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */,
 				C145D80223F651060025F490 /* ManualAdd.swift in Sources */,
 				C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */,
