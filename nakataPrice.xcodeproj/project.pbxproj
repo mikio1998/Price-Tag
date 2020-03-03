@@ -104,6 +104,23 @@
 			path = CatalogView;
 			sourceTree = "<group>";
 		};
+		C137B553240E58D00069489E /* SalesView */ = {
+			isa = PBXGroup;
+			children = (
+				C1556F2B23A616AE0078F0F0 /* SalesViewController.swift */,
+				C145D80123F651060025F490 /* ManualAdd.swift */,
+			);
+			path = SalesView;
+			sourceTree = "<group>";
+		};
+		C137B554240E58E40069489E /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				C1556F2923A616AE0078F0F0 /* CameraViewController.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
 		C145D80323F66FC50025F490 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,11 +171,10 @@
 		C1556F3B23A616EC0078F0F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C137B549240E45D40069489E /* CatalogView */,
 				C10D64D624039E4300349F2D /* ShopView */,
-				C1556F2923A616AE0078F0F0 /* CameraViewController.swift */,
-				C1556F2B23A616AE0078F0F0 /* SalesViewController.swift */,
-				C145D80123F651060025F490 /* ManualAdd.swift */,
+				C137B549240E45D40069489E /* CatalogView */,
+				C137B554240E58E40069489E /* CameraView */,
+				C137B553240E58D00069489E /* SalesView */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

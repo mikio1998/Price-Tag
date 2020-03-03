@@ -12,9 +12,11 @@ import UIKit
 class CatalogViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
-    
     // Datasource collection
-    let dataSource = ["VC1","VC2","VC3","VC4"]
+    // MARK: BRANDS
+    // ** Array order matters**
+    //      - Will search Firestore using array (also page) index
+    let dataSource = ["Alpha Industries","Valley Apparel","Houston","HELIKON-TEX"]
     // Page index collection
     var currentViewControllerIndex = 0
     

@@ -30,6 +30,12 @@ class DataViewController: UIViewController {
         collectionView.dataSource = self
         
     }
+    // MARK: FIRE TO ARRAY BRANDS
+    // Input: Brand name
+    // All products of brand
+    func firestoreToArray(brand: String) {
+        
+    }
     
 }
 
