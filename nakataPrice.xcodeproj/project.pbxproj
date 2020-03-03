@@ -10,6 +10,10 @@
 		8863219EA68AFD1DC2B0E63E /* Pods_nakataPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADA8708220F5CCEBDCF8D7B /* Pods_nakataPrice.framework */; };
 		C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D64D724039F0200349F2D /* MenuViewController.swift */; };
 		C10D64DA2403A62400349F2D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D64D92403A62400349F2D /* MenuCell.swift */; };
+		C137B54B240E462D0069489E /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137B54A240E462D0069489E /* CatalogViewController.swift */; };
+		C137B54D240E466F0069489E /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137B54C240E466F0069489E /* DataViewController.swift */; };
+		C137B550240E468F0069489E /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137B54F240E468F0069489E /* CustomPageViewController.swift */; };
+		C137B552240E46B80069489E /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137B551240E46B80069489E /* BrandCell.swift */; };
 		C145D80223F651060025F490 /* ManualAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80123F651060025F490 /* ManualAdd.swift */; };
 		C145D80623F670260025F490 /* ManualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C145D80523F670260025F490 /* ManualCell.swift */; };
 		C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F2523A616AE0078F0F0 /* AppDelegate.swift */; };
@@ -33,6 +37,10 @@
 		A17952AD301E5A98CBE27C19 /* Pods-nakataPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nakataPrice.release.xcconfig"; path = "Target Support Files/Pods-nakataPrice/Pods-nakataPrice.release.xcconfig"; sourceTree = "<group>"; };
 		C10D64D724039F0200349F2D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C10D64D92403A62400349F2D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		C137B54A240E462D0069489E /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		C137B54C240E466F0069489E /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		C137B54F240E468F0069489E /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		C137B551240E46B80069489E /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		C145D80123F651060025F490 /* ManualAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAdd.swift; sourceTree = "<group>"; };
 		C145D80523F670260025F490 /* ManualCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCell.swift; sourceTree = "<group>"; };
 		C1556F2223A616AE0078F0F0 /* nakataPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakataPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +83,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C10D64D624039E4300349F2D /* ShopViewController */ = {
+		C10D64D624039E4300349F2D /* ShopView */ = {
 			isa = PBXGroup;
 			children = (
 				C10D64D724039F0200349F2D /* MenuViewController.swift */,
@@ -83,7 +91,17 @@
 				C1E52F12240691430018C9B2 /* ContainerViewController.swift */,
 				C1E52F14240695F70018C9B2 /* ContentViewController.swift */,
 			);
-			path = ShopViewController;
+			path = ShopView;
+			sourceTree = "<group>";
+		};
+		C137B549240E45D40069489E /* CatalogView */ = {
+			isa = PBXGroup;
+			children = (
+				C137B54A240E462D0069489E /* CatalogViewController.swift */,
+				C137B54C240E466F0069489E /* DataViewController.swift */,
+				C137B54F240E468F0069489E /* CustomPageViewController.swift */,
+			);
+			path = CatalogView;
 			sourceTree = "<group>";
 		};
 		C145D80323F66FC50025F490 /* Cells */ = {
@@ -92,6 +110,7 @@
 				C1556F3C23A6199A0078F0F0 /* ProductCell.swift */,
 				C145D80523F670260025F490 /* ManualCell.swift */,
 				C10D64D92403A62400349F2D /* MenuCell.swift */,
+				C137B551240E46B80069489E /* BrandCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -135,7 +154,8 @@
 		C1556F3B23A616EC0078F0F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C10D64D624039E4300349F2D /* ShopViewController */,
+				C137B549240E45D40069489E /* CatalogView */,
+				C10D64D624039E4300349F2D /* ShopView */,
 				C1556F2923A616AE0078F0F0 /* CameraViewController.swift */,
 				C1556F2B23A616AE0078F0F0 /* SalesViewController.swift */,
 				C145D80123F651060025F490 /* ManualAdd.swift */,
@@ -267,15 +287,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C137B54B240E462D0069489E /* CatalogViewController.swift in Sources */,
 				C1560A382402AE3E00D61072 /* ShopVewController.swift in Sources */,
 				C1556F2C23A616AE0078F0F0 /* SalesViewController.swift in Sources */,
 				C1E52F13240691430018C9B2 /* ContainerViewController.swift in Sources */,
 				C10D64DA2403A62400349F2D /* MenuCell.swift in Sources */,
+				C137B552240E46B80069489E /* BrandCell.swift in Sources */,
 				C145D80623F670260025F490 /* ManualCell.swift in Sources */,
 				C1556F2A23A616AE0078F0F0 /* CameraViewController.swift in Sources */,
+				C137B550240E468F0069489E /* CustomPageViewController.swift in Sources */,
 				C1E52F15240695F70018C9B2 /* ContentViewController.swift in Sources */,
 				C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */,
 				C145D80223F651060025F490 /* ManualAdd.swift in Sources */,
+				C137B54D240E466F0069489E /* DataViewController.swift in Sources */,
 				C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */,
 				C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */,
 				C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */,
