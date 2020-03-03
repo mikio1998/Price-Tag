@@ -18,7 +18,8 @@ class DataViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     // Sample Data
-    var dataArray1 = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9"]
+    var dataArray1 = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19"]
+    var productArray = [Dictionary<String, String>]()
         
     
 
@@ -47,8 +48,7 @@ class DataViewController: UIViewController {
     // All products of brand
     func firestoreToArray(brand: String) {
         
-        
-        var productArray = [Dictionary<String, String>]()
+        //var productArray = [Dictionary<String, String>]()
 
         let firestoreDB = Firestore.firestore()
         
@@ -72,7 +72,7 @@ class DataViewController: UIViewController {
                     let searchVal = document.get("name") as! String
                     var notIn = true
                     // Add to productArray if it completes every loop
-                    for product in productArray {
+                    for product in self.productArray {
                         // if it's already in there, Break loop.
                         if product["name"] == searchVal {
                             notIn = false
@@ -88,29 +88,28 @@ class DataViewController: UIViewController {
                         //var new = document
                         var doc = document.data() as [String:Any]
                         doc.removeValue(forKey: "quantity")
-                        productArray.append(doc as! [String : String])
+                        self.productArray.append(doc as! [String : String])
                     }
-
                 }
             
-                
-            for i in productArray {
+            // just checking product collection
+                for i in self.productArray {
                 print(i["name"])
             }
-
+                print(self.productArray)
+                print(self.productArray.count)
+    
             }
         }
-        
-        
     }
-    
 }
+
 
 extension DataViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // MARK: Config later
-        return 18
+        return productArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

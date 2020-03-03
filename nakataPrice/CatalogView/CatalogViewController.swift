@@ -105,17 +105,7 @@ class CatalogViewController: UIViewController {
 
 // Delegate and datasource methods
 extension CatalogViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    
-    // Index to be displayed
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return currentViewControllerIndex
-//    }
-//
-//    // Count of how many items in the collection, like number of rows.
-//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//        return dataSource.count
-//    }
-    
+        
     
     // Before and after
     
@@ -144,6 +134,8 @@ extension CatalogViewController: UIPageViewControllerDelegate, UIPageViewControl
         }
         currentViewControllerIndex = currentIndex
         
+        
+        // There's no VC after.
         if currentIndex == dataSource.count {
             return nil
         }
