@@ -16,6 +16,12 @@ class CatalogViewController: UIViewController {
     // MARK: BRANDS
     // ** Array order matters**
     //      - Will search Firestore using array (also page) index
+    //      - Array index corresponds to product brand.
+    //  1 => Alpha
+    //  2 => Valley
+    //  3 => Houston
+    //  4 => Helikon
+
     let dataSource = ["Alpha Industries","Valley Apparel","Houston","HELIKON-TEX"]
     // Page index collection
     var currentViewControllerIndex = 0
@@ -42,7 +48,6 @@ class CatalogViewController: UIViewController {
         // We're in this container
         pageViewController.didMove(toParent: self)
         
-        //pageViewController.view.backgroundColor = UIColor.blue
         
         // MARK: Constraints to fitting content into view window
         // Auto resizing to false
@@ -50,20 +55,21 @@ class CatalogViewController: UIViewController {
         // Adding the pageVC's view into the contentView
         contentView.addSubview(pageViewController.view)
         
+        
+        
         let views: [String: Any] = ["pageView": pageViewController.view]
         
         
         // VisualFormat explaination:
         // pageView put 0pts away flush against the edges from the superview (Horizontal H, Vertical V)
-        
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|",
                                                                   options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                                                                   metrics: nil,
                                                                   views: views))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|",
-        options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-        metrics: nil,
-        views: views))
+                                                                  options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                                                                  metrics: nil,
+                                                                  views: views))
         
         guard let startingViewController = detailViewControllerAt(index: currentViewControllerIndex) else {
             return
@@ -86,7 +92,7 @@ class CatalogViewController: UIViewController {
             return nil
         }
         
-        // Mark: DataViewController config
+        // MARK: DataViewController config
         dataViewController.index = index
         dataViewController.displayText = dataSource[index]
         

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class DataViewController: UIViewController {
 
@@ -19,8 +21,17 @@ class DataViewController: UIViewController {
     var dataArray1 = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9"]
         
     
-    var displayText: String?
+
+    //  **Array index corresponds to product brand.**
+    //  1 => Alpha
+    //  2 => Valley
+    //  3 => Houston
+    //  4 => Helikon
     var index: Int?
+    
+    // Will use displayText as FirestoreToArray() input.
+    // Since it's the same string.
+    var displayText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +39,68 @@ class DataViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
+        firestoreToArray(brand: displayText!)
     }
     // MARK: FIRE TO ARRAY BRANDS
     // Input: Brand name
     // All products of brand
     func firestoreToArray(brand: String) {
+        
+        
+        var productArray = [Dictionary<String, String>]()
+
+        let firestoreDB = Firestore.firestore()
+        
+        // Filter by brand
+        let productsDB = firestoreDB.collection("products").whereField("brand", isEqualTo: brand)
+        
+        //let extra = productsDB.whereField("size", isEqualTo: "M")
+        
+        
+        productsDB.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                print("Got it")
+                
+                // For document in the query
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    
+                    // Check if product is already in Array.
+                    let searchVal = document.get("name") as! String
+                    var notIn = true
+                    // Add to productArray if it completes every loop
+                    for product in productArray {
+                        // if it's already in there, Break loop.
+                        if product["name"] == searchVal {
+                            notIn = false
+                            break
+                        } else {
+                            // else if it's not in there, continue looping.
+                            continue
+                        }
+                    }
+                    
+                    // If true, append to brandArray
+                    if notIn {
+                        //var new = document
+                        var doc = document.data() as [String:Any]
+                        doc.removeValue(forKey: "quantity")
+                        productArray.append(doc as! [String : String])
+                    }
+
+                }
+            
+                
+            for i in productArray {
+                print(i["name"])
+            }
+
+            }
+        }
+        
         
     }
     
