@@ -20,14 +20,20 @@ class DataViewController: UIViewController {
     // Sample Data
     var dataArray1 = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19"]
     var productArray = [Dictionary<String, String>]()
-        
+    
+    
+    var alphaIndustriesArray = [Dictionary<String, String>]()
+    var valleyApparelArray = [Dictionary<String, String>]()
+    var houstonArray = [Dictionary<String, String>]()
+    var helikonTexArray = [Dictionary<String, String>]()
+
     
 
     //  **Array index corresponds to product brand.**
-    //  1 => Alpha
-    //  2 => Valley
+    //  1 => Alpha Industries
+    //  2 => Valley Apparel
     //  3 => Houston
-    //  4 => Helikon
+    //  4 => HELIKON-TEX
     var index: Int?
     
     // Will use displayText as FirestoreToArray() input.
@@ -37,25 +43,40 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = displayText
+        //var helikonTexArray = [Dictionary<String, String>]()
+        //let helikonTexArray: [[Dictionary<String, String>]] = []
+            
+//        var list: [[Dictionary<String, String>]] =
+//        [self.alphaIndustriesArray,
+//         self.valleyApparelArray,
+//         self.houstonArray,
+//         self.helikonTexArray
+//        ]
         
+        
+        print(index, "haha")
         collectionView.delegate = self
         collectionView.dataSource = self
         firestoreToArray(brand: displayText!)
+        
     }
+    
+    
     // MARK: FIRE TO ARRAY BRANDS
     // Input: Brand name
     // All products of brand
     func firestoreToArray(brand: String) {
         
-        //var productArray = [Dictionary<String, String>]()
-
+//        let alpha = self.alphaIndustriesArray
+//        let valley = self.valleyApparelArray
+//        let houston = self.houstonArray
+//        let helikon = self.helikonTexArray
+        //let list: [[Dictionary<String, String>]] = [alpha, valley, houston, helikon]
+        
         let firestoreDB = Firestore.firestore()
         
         // Filter by brand
         let productsDB = firestoreDB.collection("products").whereField("brand", isEqualTo: brand)
-        
-        //let extra = productsDB.whereField("size", isEqualTo: "M")
-        
         
         productsDB.getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -87,6 +108,20 @@ class DataViewController: UIViewController {
                         //var new = document
                         var doc = document.data() as [String:Any]
                         doc.removeValue(forKey: "quantity")
+                        
+                        // MARK: Identify which brand's array to append to:
+                        // .. code ..
+                        if self.index == 3 {
+                            self.helikonTexArray.append(doc as! [String : String])
+                        } else {
+                            self.productArray.append(doc as! [String : String])
+                        }
+                        
+//                        var arr = list[self.index ?? 0]
+//                        arr.append(doc as! [String : String])
+                        //print("THIS WORKS?",arr)
+                        
+                        
                         self.productArray.append(doc as! [String : String])
                     }
                 }
@@ -96,7 +131,8 @@ class DataViewController: UIViewController {
                 print(i["name"])
             }
                 print(self.productArray)
-                print(self.productArray.count)
+                print(self.helikonTexArray.count)
+                print("HK", self.helikonTexArray)
     
             }
         }
@@ -107,7 +143,9 @@ class DataViewController: UIViewController {
 extension DataViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // MARK: Config later
+        // MARK: Identify the brand of the current index
+        // then create and use that array here.
+        
         return productArray.count
     }
     
@@ -117,6 +155,10 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.setLabelandImage(label: data)
         return cell
     }
+    
+    
+    
+    
     
     
     // MARK: Cell size and Spacing!
