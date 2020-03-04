@@ -40,7 +40,6 @@ class DataViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
         firestoreToArray(brand: displayText!)
     }
     // MARK: FIRE TO ARRAY BRANDS

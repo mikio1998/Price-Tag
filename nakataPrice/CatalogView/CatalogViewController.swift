@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class CatalogViewController: UIViewController {
 
@@ -21,7 +23,6 @@ class CatalogViewController: UIViewController {
     //  2 => Valley
     //  3 => Houston
     //  4 => Helikon
-
     let dataSource = ["Alpha Industries","Valley Apparel","Houston","HELIKON-TEX"]
     // Page index collection
     var currentViewControllerIndex = 0
@@ -33,8 +34,15 @@ class CatalogViewController: UIViewController {
         
     }
     
-    // Initialization logic
+
+    
+    
+    
+    
+    // MARK: Initialization logic
     func configurePageViewController() {
+        
+        //  Creates instance of CustomPageViewController
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as? CustomPageViewController else {
             return
         }
@@ -42,7 +50,7 @@ class CatalogViewController: UIViewController {
         pageViewController.delegate = self
         pageViewController.dataSource = self
         
-        // Add this as a child VC
+        // Add the pageVC as a child VC to CatalogVC
         addChild(pageViewController)
         // Tell the pageViewController we moved to parent VC (which is self)
         // We're in this container
@@ -52,7 +60,8 @@ class CatalogViewController: UIViewController {
         // MARK: Constraints to fitting content into view window
         // Auto resizing to false
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        // Adding the pageVC's view into the contentView
+        
+        // Adding the pageVC's View into the contentView
         contentView.addSubview(pageViewController.view)
         
         
@@ -96,8 +105,6 @@ class CatalogViewController: UIViewController {
         dataViewController.index = index
         dataViewController.displayText = dataSource[index]
         
-        
-        
         return dataViewController
     }
 
@@ -123,6 +130,7 @@ extension CatalogViewController: UIPageViewControllerDelegate, UIPageViewControl
             return nil
         }
         currentIndex -= 1
+        
         return detailViewControllerAt(index: currentIndex)
     }
     
