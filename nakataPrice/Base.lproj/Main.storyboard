@@ -102,10 +102,12 @@
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="-1446.4285714285713"/>
         </scene>
-        <!--Custom Page View Controller-->
+        <!--Item-->
         <scene sceneID="oxc-zm-b32">
             <objects>
-                <pageViewController restorationIdentifier="CustomPageViewController" storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0rB-IA-JCa" customClass="CustomPageViewController" customModule="nakataPrice" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController restorationIdentifier="CustomPageViewController" storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0rB-IA-JCa" customClass="CustomPageViewController" customModule="nakataPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="h1h-Ch-2ck"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gad-If-37R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1903" y="-787"/>
@@ -360,7 +362,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Bmv-0k-Uon" kind="relationship" relationship="viewControllers" id="RUl-QA-i4h"/>
+                        <segue destination="Bmv-0k-Uon" kind="relationship" relationship="viewControllers" id="qmP-Er-xM5"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Tks-YH-dgD" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>

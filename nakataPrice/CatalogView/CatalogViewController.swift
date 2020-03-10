@@ -32,6 +32,7 @@ class CatalogViewController: UIViewController {
         super.viewDidLoad()
         configurePageViewController()
         
+        
     }
     
 
@@ -66,6 +67,7 @@ class CatalogViewController: UIViewController {
         
         
         
+        
         let views: [String: Any] = ["pageView": pageViewController.view]
         
         
@@ -91,7 +93,10 @@ class CatalogViewController: UIViewController {
     // Instantiate new instance of a DataViewController, assign an index, and return it back.
     func detailViewControllerAt(index: Int) -> DataViewController? {
         
-        // prevention from overstepping array index
+        // Have to identify which VC (probably using index)
+        // Then, somehow load that data...
+        
+        // Prevention from overstepping array index
         if index >= dataSource.count || dataSource.count == 0 {
             return nil
         }
@@ -101,10 +106,20 @@ class CatalogViewController: UIViewController {
             return nil
         }
         
+        
         // MARK: DataViewController config
         dataViewController.index = index
         dataViewController.displayText = dataSource[index]
         
+        
+        //dataViewController.firestoreToArray(brand: dataSource[index])
+        
+        // should probably do load.. sommething
+        
+//        dataViewController.collectionView.dataSource = self as? UICollectionViewDataSource
+//        dataViewController.collectionView.reloadData()
+        
+        //print(dataViewController.productArray, "this here")
         return dataViewController
     }
 
@@ -113,27 +128,38 @@ class CatalogViewController: UIViewController {
 // Delegate and datasource methods
 extension CatalogViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
         
+
+    
     
     // Before and after
     
+    // BEFORE
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         let dataViewController = viewController as? DataViewController
         
         // MARK: Index config
+        
+        // the Current index
         guard var currentIndex = dataViewController?.index else {
             return nil
         }
         currentViewControllerIndex = currentIndex
         
+        // If current Index == 0, theres no before.
         if currentIndex == 0 {
             return nil
         }
+        
+        // Set index as one before
         currentIndex -= 1
         
+        // Instantiates a DataViewController, with the previous index.
         return detailViewControllerAt(index: currentIndex)
     }
     
+    
+    // AFTER
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let dataViewController = viewController as? DataViewController

@@ -1,5 +1,5 @@
 //
-//  BrandViewController.swift
+//  DataViewController.swift
 //  nakataPrice
 //
 //  Created by Mikio Nakata on 3/3/20.
@@ -53,14 +53,18 @@ class DataViewController: UIViewController {
 //         self.helikonTexArray
 //        ]
         
-        
-        print(index, "haha")
+        firestoreToArray(brand: displayText!)
+
         collectionView.delegate = self
         collectionView.dataSource = self
-        firestoreToArray(brand: displayText!)
+        //firestoreToArray(brand: displayText!)
         
     }
     
+    
+    // Maybe, should run this func for every brand.
+    // As in, create a collection for each brand....
+    // Then can fill in brand Arrays respectively.
     
     // MARK: FIRE TO ARRAY BRANDS
     // Input: Brand name
@@ -133,6 +137,9 @@ class DataViewController: UIViewController {
                 print(self.productArray)
                 print(self.helikonTexArray.count)
                 print("HK", self.helikonTexArray)
+                
+                // Dammn, I just spent a week solving this problem... one line. 
+                self.collectionView.reloadData()
     
             }
         }
