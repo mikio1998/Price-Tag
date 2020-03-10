@@ -18,14 +18,16 @@ class DataViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     // Sample Data
-    var dataArray1 = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19"]
+    var dataArray = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19"]
+    
+    // Contains all unique products per brand, from Firestore.
     var productArray = [Dictionary<String, String>]()
     
     
-    var alphaIndustriesArray = [Dictionary<String, String>]()
-    var valleyApparelArray = [Dictionary<String, String>]()
-    var houstonArray = [Dictionary<String, String>]()
-    var helikonTexArray = [Dictionary<String, String>]()
+//    var alphaIndustriesArray = [Dictionary<String, String>]()
+//    var valleyApparelArray = [Dictionary<String, String>]()
+//    var houstonArray = [Dictionary<String, String>]()
+//    var helikonTexArray = [Dictionary<String, String>]()
 
     
 
@@ -43,22 +45,11 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = displayText
-        //var helikonTexArray = [Dictionary<String, String>]()
-        //let helikonTexArray: [[Dictionary<String, String>]] = []
-            
-//        var list: [[Dictionary<String, String>]] =
-//        [self.alphaIndustriesArray,
-//         self.valleyApparelArray,
-//         self.houstonArray,
-//         self.helikonTexArray
-//        ]
         
         firestoreToArray(brand: displayText!)
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        //firestoreToArray(brand: displayText!)
-        
     }
     
     
@@ -71,12 +62,6 @@ class DataViewController: UIViewController {
     // All products of brand
     func firestoreToArray(brand: String) {
         
-//        let alpha = self.alphaIndustriesArray
-//        let valley = self.valleyApparelArray
-//        let houston = self.houstonArray
-//        let helikon = self.helikonTexArray
-        //let list: [[Dictionary<String, String>]] = [alpha, valley, houston, helikon]
-        
         let firestoreDB = Firestore.firestore()
         
         // Filter by brand
@@ -86,11 +71,9 @@ class DataViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                print("Got it")
-                
-                // For document in the query
+                // For document in the query... check if product is already in Array.
                 for document in querySnapshot!.documents {
-                    //print("\(document.documentID) => \(document.data())")
+
                     
                     // Check if product is already in Array.
                     let searchVal = document.get("name") as! String
@@ -112,20 +95,7 @@ class DataViewController: UIViewController {
                         //var new = document
                         var doc = document.data() as [String:Any]
                         doc.removeValue(forKey: "quantity")
-                        
-                        // MARK: Identify which brand's array to append to:
-                        // .. code ..
-                        if self.index == 3 {
-                            self.helikonTexArray.append(doc as! [String : String])
-                        } else {
-                            self.productArray.append(doc as! [String : String])
-                        }
-                        
-//                        var arr = list[self.index ?? 0]
-//                        arr.append(doc as! [String : String])
-                        //print("THIS WORKS?",arr)
-                        
-                        
+                                                
                         self.productArray.append(doc as! [String : String])
                     }
                 }
@@ -135,15 +105,25 @@ class DataViewController: UIViewController {
                 print(i["name"])
             }
                 print(self.productArray)
-                print(self.helikonTexArray.count)
-                print("HK", self.helikonTexArray)
+
                 
-                // Dammn, I just spent a week solving this problem... one line. 
+                // Dammn, I just spent a week solving this problem... one line.
                 self.collectionView.reloadData()
     
             }
         }
     }
+    
+    
+    // MARK: del later
+    func productToData1(array: Array<Any>) {
+    }
+    func productToData(array: [Dictionary<String, String>]) {
+        // need name, color, price
+    }
+    
+    
+    
 }
 
 
@@ -158,7 +138,10 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection Cell", for: indexPath) as! SampleCell
-        let data = dataArray1[indexPath.row]
+        
+        let data = productArray[indexPath.row]["name"] ?? "Product"
+        
+        //let data = dataArray[indexPath.row]
         cell.setLabelandImage(label: data)
         return cell
     }
