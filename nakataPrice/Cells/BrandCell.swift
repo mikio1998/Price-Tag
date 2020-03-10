@@ -15,8 +15,9 @@ class SampleCell: UICollectionViewCell {
     
     @IBOutlet weak var cellLabel: UILabel!
     // Without image
-    func setLabelandImage(label: String) {
+    func setLabelandImage(label: String, color: String) {
         cellLabel.text = label
+        cellImage.image = UIImage(named: "\(label) \(color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
     }
 //    func setLabelandImage(label: String, image: UIImage) {
 //        cellLabel.text = label
