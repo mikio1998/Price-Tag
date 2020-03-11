@@ -78,6 +78,7 @@
                                         <connections>
                                             <outlet property="cellImage" destination="1WA-at-1XM" id="mI7-kI-egD"/>
                                             <outlet property="cellLabel" destination="SWg-Bi-jqJ" id="nnj-B1-zbj"/>
+                                            <segue destination="j58-CQ-9bP" kind="show" identifier="DetailsSegue" id="yiB-q5-KGm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -100,7 +101,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EA-2G-QGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="-1446.4285714285713"/>
+            <point key="canvasLocation" x="1832" y="-1499"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="HDw-tG-Iea">
+            <objects>
+                <viewController id="j58-CQ-9bP" customClass="DetailsViewController" customModule="nakataPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQb-9H-1dp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oht-qz-suI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Y6-0I-FL5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cd-lM-JNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2581" y="-1643"/>
         </scene>
         <!--Item-->
         <scene sceneID="oxc-zm-b32">
@@ -438,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab3-5V-Wb8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3203" y="-1131"/>
+            <point key="canvasLocation" x="3470" y="-1023"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="g3T-fp-mhC">

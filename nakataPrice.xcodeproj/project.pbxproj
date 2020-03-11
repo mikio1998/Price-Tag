@@ -27,6 +27,7 @@
 		C1556F3F23A73FB40078F0F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1556F3E23A73FB40078F0F0 /* Constants.swift */; };
 		C1556F4123A7498B0078F0F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */; };
 		C1560A382402AE3E00D61072 /* ShopVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1560A372402AE3E00D61072 /* ShopVewController.swift */; };
+		C1DC890A2418E0AD00383450 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DC89092418E0AD00383450 /* DetailsViewController.swift */; };
 		C1E52F13240691430018C9B2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E52F12240691430018C9B2 /* ContainerViewController.swift */; };
 		C1E52F15240695F70018C9B2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E52F14240695F70018C9B2 /* ContentViewController.swift */; };
 		C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E6B16123FBD5FD00FC184D /* AddingScript.swift */; };
@@ -56,6 +57,7 @@
 		C1556F3E23A73FB40078F0F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C1556F4023A7498A0078F0F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1560A372402AE3E00D61072 /* ShopVewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVewController.swift; sourceTree = "<group>"; };
+		C1DC89092418E0AD00383450 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C1E52F12240691430018C9B2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		C1E52F14240695F70018C9B2 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		C1E6B16123FBD5FD00FC184D /* AddingScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingScript.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				C137B54A240E462D0069489E /* CatalogViewController.swift */,
 				C137B54C240E466F0069489E /* DataViewController.swift */,
 				C137B54F240E468F0069489E /* CustomPageViewController.swift */,
+				C1DC89092418E0AD00383450 /* DetailsViewController.swift */,
 			);
 			path = CatalogView;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				C10D64D824039F0200349F2D /* MenuViewController.swift in Sources */,
 				C145D80223F651060025F490 /* ManualAdd.swift in Sources */,
 				C137B54D240E466F0069489E /* DataViewController.swift in Sources */,
+				C1DC890A2418E0AD00383450 /* DetailsViewController.swift in Sources */,
 				C1E6B16223FBD5FD00FC184D /* AddingScript.swift in Sources */,
 				C1556F3D23A6199A0078F0F0 /* ProductCell.swift in Sources */,
 				C1556F2623A616AE0078F0F0 /* AppDelegate.swift in Sources */,
