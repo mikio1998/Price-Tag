@@ -78,7 +78,6 @@
                                         <connections>
                                             <outlet property="cellImage" destination="1WA-at-1XM" id="mI7-kI-egD"/>
                                             <outlet property="cellLabel" destination="SWg-Bi-jqJ" id="nnj-B1-zbj"/>
-                                            <segue destination="s2I-rY-vaY" kind="show" identifier="DetailsSegue" id="rBB-Qt-zq8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -97,6 +96,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Qut-yt-vgv" id="8VF-I6-pNw"/>
                         <outlet property="displayLabel" destination="XiV-5z-tT6" id="0Wq-1r-Xj0"/>
+                        <segue destination="s2I-rY-vaY" kind="show" identifier="DetailsSegue" id="pzJ-9A-ZMP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EA-2G-QGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

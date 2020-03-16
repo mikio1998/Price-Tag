@@ -141,7 +141,7 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
         collectionView.deselectItem(at: indexPath, animated: true)
         
         self.selectedIndex = indexPath.row
-        //performSegue(withIdentifier: "DetailsSegue", sender: Any?.self)
+        performSegue(withIdentifier: "DetailsSegue", sender: Any?.self)
     }
     
     
@@ -169,6 +169,8 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
 //            vc.name = foodKind[selectedIndex]
             // MARK: ISsue here!!!
             print(vc.name, "PRODUCT", selectedIndex, "selected INDEX")
+            
+            //performSegue(withIdentifier: "DetailsSegue", sender: Any?.self)
             
             
         }
