@@ -25,12 +25,7 @@ class DataViewController: UIViewController {
     
     // For cell selection use.
     var selectedIndex = Int()
-    
-    
-//    var alphaIndustriesArray = [Dictionary<String, String>]()
-//    var valleyApparelArray = [Dictionary<String, String>]()
-//    var houstonArray = [Dictionary<String, String>]()
-//    var helikonTexArray = [Dictionary<String, String>]()
+
 
     
 
@@ -47,6 +42,7 @@ class DataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         displayLabel.text = displayText
         
         firestoreToArray(brand: displayText!)
@@ -55,10 +51,7 @@ class DataViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    
-    // Maybe, should run this func for every brand.
-    // As in, create a collection for each brand....
-    // Then can fill in brand Arrays respectively.
+
     
     // MARK: FIRE TO ARRAY BRANDS
     // Input: Brand name
@@ -135,19 +128,27 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
         let nameData = productArray[indexPath.row]["name"] ?? "Product"
         let colorData = productArray[indexPath.row]["color"] ?? "Black"
         print("\(nameData) \(colorData)")
-        //let data = dataArray[indexPath.row]
+
         cell.setLabelandImage(label: nameData, color: colorData)
         return cell
     }
     
-    // didSelectItem
+    
+    
+    
+    // MARK: didSelectItem
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
         self.selectedIndex = indexPath.row
-        performSegue(withIdentifier: "DetailsSegue", sender: (Any).self)
+        //performSegue(withIdentifier: "DetailsSegue", sender: Any?.self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
         if segue.identifier == "DetailsSegue" {
             
             // Instantiate navigation VC.
@@ -166,14 +167,26 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
             
 //            vc.image = foodImage[selectedIndex]
 //            vc.name = foodKind[selectedIndex]
+            // MARK: ISsue here!!!
+            print(vc.name, "PRODUCT", selectedIndex, "selected INDEX")
             
             
         }
-        
     }
+    
+    
+    
+    
 
     
-    // MARK: Cell size and Spacing!
+    
+    
+    
+    
+    
+    
+    
+    // MARK: CELL SIZING AND SPACING!!!!
     
     // Scaling cell sizing
     // Denominator: cells per row
@@ -194,7 +207,5 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 3
     }
-    
-
 }
 

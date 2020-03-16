@@ -8,16 +8,32 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var image: UIImageView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
+    
+    
+
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     var brand : String = ""
     var name : String = ""
     var price : String = ""
     var color : String = ""
+    
+    // create dict to get every product
+    
     
     
     var pickerData = [["color", "color", "color", "color"],
@@ -30,13 +46,20 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.picker.delegate = self
         self.picker.dataSource = self
         
+        print("BACK")
+        self.nameLabel.text = self.name
+        self.brandLabel.text = self.brand
+        
     }
     
     // MARK: Reading data from Firestore
     // Need to get product's available sizes, colors.
-    func firestoreToArray(brand: String, name: String) {
-        
-    }
+//    func firestoreToArray(brand: String, name: String) {
+//        let firestoreDB = Firestore.firestore()
+//
+//        // Filter by name
+//        let productsDB = firestoreDB.collection("products").whereField("name", isEqualTo: self.name)
+//    }
     
     
     
