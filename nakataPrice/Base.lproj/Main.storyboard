@@ -132,12 +132,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="8Y6-0I-FL5"/>
                     <connections>
+                        <outlet property="image" destination="zQT-zw-xen" id="z5x-9U-8Cm"/>
                         <outlet property="picker" destination="eA9-0U-3BO" id="7i7-p0-VnT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cd-lM-JNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4552.1739130434789" y="-1643.3035714285713"/>
+            <point key="canvasLocation" x="3570" y="-1606"/>
         </scene>
         <!--Item-->
         <scene sceneID="oxc-zm-b32">
@@ -591,7 +592,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSo-hp-a3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3642.0289855072465" y="-1643.3035714285713"/>
+            <point key="canvasLocation" x="2864" y="-1606"/>
         </scene>
     </scenes>
     <resources>

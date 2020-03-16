@@ -12,6 +12,7 @@ import UIKit
 class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var image: UIImageView!
     
     var brand : String = ""
     var name : String = ""
@@ -30,6 +31,14 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.picker.dataSource = self
         
     }
+    
+    // MARK: Reading data from Firestore
+    // Need to get product's available sizes, colors.
+    func firestoreToArray(brand: String, name: String) {
+        
+    }
+    
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count

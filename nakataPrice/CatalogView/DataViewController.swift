@@ -149,9 +149,14 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsSegue" {
-            let vc : DetailsViewController = segue.destination as! DetailsViewController
             
-            // Preparing cell brand,name,price for segue.
+            // Instantiate navigation VC.
+            let nav = segue.destination as! UINavigationController
+            // Set DetailsVC as top vc in the nav.
+            let vc = nav.topViewController as! DetailsViewController
+
+            
+            // MARK: Preparing cell brand,name,price for segue.
             // Will use this data in DetailsViewController, for filtering firestore searching.
             vc.brand = productArray[selectedIndex]["brand"]!
             vc.name = productArray[selectedIndex]["name"]!
