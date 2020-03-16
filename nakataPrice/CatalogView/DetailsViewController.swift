@@ -34,21 +34,25 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // create dict to get every product
     
+//    var sizeArray: [String] = []
+//    var colorArray: [String] = []
     
+//    var pickerData = [["color", "color", "color", "color"],
+//                      ["size", "size", "size", "size"],
+//                      ["quantity", "quantity", "quantity", "quantity"]]
     
-    var pickerData = [["color", "color", "color", "color"],
-                      ["size", "size", "size", "size"],
-                      ["quantity", "quantity", "quantity", "quantity"]]
+    var pickerData: [[String]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        firestoreToArray(brand: self.brand, name: self.name)
         self.picker.delegate = self
         self.picker.dataSource = self
         
-        print("BACK")
         self.nameLabel.text = self.name
         self.brandLabel.text = self.brand
+        
+//        firestoreToArray(brand: self.brand, name: self.name)
         
     }
     
@@ -58,11 +62,60 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // Filter by BRAND --> Filter by NAME
     // --> algo for getting all names, colors.
 
+    
     func firestoreToArray(brand: String, name: String) {
         let firestoreDB = Firestore.firestore()
+        
+//        let sizeArray = []
+//        let colorArray = []
+        var sizeArray: [String] = []
+        var colorArray: [String] = []
 
-        // Filter by name
-        let productsDB = firestoreDB.collection("products").whereField("name", isEqualTo: self.name)
+        // Filter by both product BRAND and NAME
+        // Use brand, to prevent same-name-diff-brand risk.
+        let productsDB = firestoreDB.collection("products").whereField("brand", isEqualTo: self.brand).whereField("name", isEqualTo: self.name)
+        
+        // You have every type of the Product, here.
+        productsDB.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                // Get the sizes and colors.
+                for document in querySnapshot!.documents {
+                    
+                    // Instantiate document's product size.
+                    let sizeInstance = document.get("size") as! String
+                    
+                    let colorInstance = document.get("color") as! String
+
+                    
+                    //if self.sizeArray.contains(sizeInstance) {
+                    if sizeArray.contains(sizeInstance) {
+                        // If it contains, do nothing.
+                    } else {
+//                        self.sizeArray.append(sizeInstance)
+                        sizeArray.append(sizeInstance)
+                    }
+                    
+//                    if self.colorArray.contains(colorInstance) {
+                    if colorArray.contains(colorInstance) {
+                        // If it contains, do nothing.
+                    } else {
+//                        self.colorArray.append(colorInstance)
+                        colorArray.append(colorInstance)
+                    }
+                }
+                
+                // Dammn, I just spent a week solving this problem... one line.
+                //self.collectionView.reloadData()
+            }
+            self.pickerData.append(sizeArray)
+            self.pickerData.append(colorArray)
+            
+            print(self.pickerData)
+
+        }
+
     }
     
     
@@ -70,6 +123,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        print(pickerData.count)
         return pickerData.count
     }
     
