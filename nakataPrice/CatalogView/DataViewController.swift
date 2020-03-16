@@ -23,6 +23,9 @@ class DataViewController: UIViewController {
     // Contains all unique products per brand, from Firestore.
     var productArray = [Dictionary<String, String>]()
     
+    // For cell selection use.
+    var selectedIndex = Int()
+    
     
 //    var alphaIndustriesArray = [Dictionary<String, String>]()
 //    var valleyApparelArray = [Dictionary<String, String>]()
@@ -113,17 +116,7 @@ class DataViewController: UIViewController {
             }
         }
     }
-    
-    
-    // MARK: del later
-    func productToData1(array: Array<Any>) {
-    }
-    func productToData(array: [Dictionary<String, String>]) {
-        // need name, color, price
-    }
-    
-    
-    
+
 }
 
 
@@ -147,18 +140,33 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
+    // didSelectItem
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        self.selectedIndex = indexPath.row
         performSegue(withIdentifier: "DetailsSegue", sender: (Any).self)
-        
-        
-        
     }
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailsSegue" {
+            let vc : DetailsViewController = segue.destination as! DetailsViewController
+            
+            // Preparing cell brand,name,price for segue.
+            // Will use this data in DetailsViewController, for filtering firestore searching.
+            vc.brand = productArray[selectedIndex]["brand"]!
+            vc.name = productArray[selectedIndex]["name"]!
+            
+            vc.color = productArray[selectedIndex]["color"]!
+            vc.price = productArray[selectedIndex]["price"]!
+            
+//            vc.image = foodImage[selectedIndex]
+//            vc.name = foodKind[selectedIndex]
+            
+            
+        }
+        
+    }
+
     
     // MARK: Cell size and Spacing!
     
@@ -167,7 +175,6 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = -3 + (collectionView.bounds.width)/2.0
         let yourHeight = yourWidth
-
         return CGSize(width: yourWidth, height: yourHeight)
     }
     

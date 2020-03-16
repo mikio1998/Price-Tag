@@ -13,6 +13,12 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var picker: UIPickerView!
     
+    var brand : String = ""
+    var name : String = ""
+    var price : String = ""
+    var color : String = ""
+    
+    
     var pickerData = [["color", "color", "color", "color"],
                       ["size", "size", "size", "size"],
                       ["quantity", "quantity", "quantity", "quantity"]]
@@ -22,6 +28,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.picker.delegate = self
         self.picker.dataSource = self
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
