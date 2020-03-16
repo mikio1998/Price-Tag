@@ -53,13 +53,19 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     // MARK: Reading data from Firestore
-    // Need to get product's available sizes, colors.
-//    func firestoreToArray(brand: String, name: String) {
-//        let firestoreDB = Firestore.firestore()
-//
-//        // Filter by name
-//        let productsDB = firestoreDB.collection("products").whereField("name", isEqualTo: self.name)
-//    }
+    // Need to get product's available SIZES, COLORS.
+    
+    // Filter by BRAND --> Filter by NAME
+    // --> algo for getting all names, colors.
+
+    func firestoreToArray(brand: String, name: String) {
+        let firestoreDB = Firestore.firestore()
+
+        // Filter by name
+        let productsDB = firestoreDB.collection("products").whereField("name", isEqualTo: self.name)
+    }
+    
+    
     
     
     
