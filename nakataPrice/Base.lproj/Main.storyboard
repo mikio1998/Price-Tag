@@ -143,7 +143,11 @@
                                 <action selector="cancel:" destination="j58-CQ-9bP" id="xVn-Yf-vLc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OJg-Kv-jib"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OJg-Kv-jib">
+                            <connections>
+                                <action selector="save:" destination="j58-CQ-9bP" id="ujQ-1i-aQm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="brandLabel" destination="Ziw-T8-uN2" id="paR-OZ-E9o"/>

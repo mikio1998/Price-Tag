@@ -95,7 +95,6 @@ class DataViewController: UIViewController {
                         self.productArray.append(doc as! [String : String])
                     }
                 }
-            
             // just checking product collection
                 for i in self.productArray {
                 print(i["name"])

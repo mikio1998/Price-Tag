@@ -19,33 +19,32 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     
-    
 
+    // save
+    @IBAction func save(_ sender: Any) {
+        
+    }
+    //cancel
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     var brand : String = ""
     var name : String = ""
     var price : String = ""
     var color : String = ""
-    
-    // create dict to get every product
-    
-//    var sizeArray: [String] = []
-//    var colorArray: [String] = []
-    
-//    var pickerData = [["color", "color", "color", "color"],
-//                      ["size", "size", "size", "size"],
-//                      ["quantity", "quantity", "quantity", "quantity"]]
-    
+        
     var pickerData: [[String]] = []
+    
+    // brand-name-color-size
+    // Attach brand in later process.
+    var currentSelection: [String] = ["Name","Color","Size"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.image.image = UIImage(named: "\(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
         firestoreToArray(brand: self.brand, name: self.name)
+        
         self.picker.delegate = self
         self.picker.dataSource = self
         
@@ -53,6 +52,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.brandLabel.text = self.brand
         
 //        firestoreToArray(brand: self.brand, name: self.name)
+        //self.currentSelection[0] ==
         
     }
     
@@ -70,6 +70,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //        let colorArray = []
         var sizeArray: [String] = []
         var colorArray: [String] = []
+        let quantityArray: [String] = ["1", "2", "3", "4", "5", "6", "7"]
 
         // Filter by both product BRAND and NAME
         // Use brand, to prevent same-name-diff-brand risk.
@@ -85,10 +86,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     
                     // Instantiate document's product size.
                     let sizeInstance = document.get("size") as! String
-                    
                     let colorInstance = document.get("color") as! String
 
-                    
                     //if self.sizeArray.contains(sizeInstance) {
                     if sizeArray.contains(sizeInstance) {
                         // If it contains, do nothing.
@@ -106,28 +105,33 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     }
                 }
                 
+                self.pickerData.append(sizeArray)
+                self.pickerData.append(colorArray)
+                self.pickerData.append(quantityArray)
+                
                 // Dammn, I just spent a week solving this problem... one line.
                 //self.collectionView.reloadData()
+                //Calling this method causes the picker view to query the delegate for new data for all components.
+                self.picker.reloadAllComponents()
             }
-            self.pickerData.append(sizeArray)
-            self.pickerData.append(colorArray)
-            
-            print(self.pickerData)
-
+            print(self.pickerData, "picker")
+            // Setting initial picker selection.
+            self.setCurrentSelection()
         }
-
     }
-    
-    
-    
-    
-    
+    // Setting initial picker selection.
+    func setCurrentSelection () {
+        for i in 0..<3 { // range 3
+            self.currentSelection[i] = self.pickerData[i][0]
+        }
+        print("Initial Selection:", currentSelection)
+    }
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        print(pickerData.count)
         return pickerData.count
     }
     
-    // Count of picker column
+    // Count of picker column's rows.
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
@@ -139,8 +143,16 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // Capture the picker selection view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // Triggered when user makes change to picker collection.
-        // Parameters named row and component determines what was selected.
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        
+        // format -> ["Brand", "Name","Color","Size"]
+        
+        self.currentSelection[component] = self.pickerData[component][row]
+
+        print("Current Selection:", self.currentSelection)
+        
+        
     }
     
 }
