@@ -116,9 +116,6 @@ class SalesViewController: UIViewController {
                     print(self.salesArray)
                     self.tableView.reloadData()
                 }
-                //if (diff.type == .removed) {
-                    //print("Removed sale: \(diff.document.data())")
-                    //self.tableView.reloadData()
                 }
             }
 

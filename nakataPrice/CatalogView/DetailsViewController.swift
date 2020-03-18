@@ -22,6 +22,109 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     // save
     @IBAction func save(_ sender: Any) {
+    
+        var brandName: String = "brand"
+        var quantity: Int = Int(self.currentSelection[2]) ?? 1
+        
+        // Naming adjustment for writing to DB.
+        if self.brand == "HELIKON-TEX" {
+            brandName = "hk"
+        } else if self.brand == "Alpha Industries" {
+            brandName = "alpha"
+        } else {
+            brandName = "brandname"
+        }
+        
+        // Preparing new DB entry ID. Adjusting for proper DB format.
+        let newSaleID = brandName.replacingOccurrences(of: " ", with: "")     // brand
+            + "-" + "\(self.name.lowercased().replacingOccurrences(of: " ", with: ""))" // name
+            + "-" + "\(self.currentSelection[1].lowercased().replacingOccurrences(of: " ", with: ""))" // color
+            + "-" + "\(self.currentSelection[0].lowercased().replacingOccurrences(of: " ", with: ""))" // size
+        print(newSaleID)
+        
+        // Check if newSaleID already exists in Sales Track.
+        // If so, just add the quantity.
+        let firestoreDB = Firestore.firestore()
+        let salesRef = firestoreDB.collection("sales track")
+        let existSale = firestoreDB.collection("sales track").document(newSaleID)
+        
+        
+    
+            // MARK: Tryna increment quantity.
+        existSale.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // JUST ADD QUANTITY
+                print("Sale already exists.")
+                document.data().
+                // Get initial quantity.
+                existSale.updateData(<#T##fields: [AnyHashable : Any]##[AnyHashable : Any]#>)
+                
+                // Add new quantity.
+                existSale.updateData([
+                    "quantity": true
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+                
+                
+            } else {
+                
+                let newSale =
+                    Product(name: self.name,
+                            brand: self.brand,
+                            size: self.currentSelection[0],
+                            color: self.currentSelection[1],
+                            price: self.price,
+                            id: "0",
+                            quantity: quantity)
+                print(newSale)
+                
+                salesRef.document(newSaleID).setData([
+                    "name": newSale.name,
+                    "brand": newSale.brand,
+                    "size": newSale.size,
+                    "color": newSale.color,
+                    "price": newSale.price,
+                    "id": newSale.id,
+                    "quantity": newSale.quantity
+                ])
+            }
+        }
+        
+//        let newSale =
+//            Product(name: self.name,
+//                    brand: self.brand,
+//                    size: self.currentSelection[0],
+//                    color: self.currentSelection[1],
+//                    price: self.price,
+//                    id: "0",
+//                    quantity: quantity)
+//        print(newSale)
+//
+//        salesRef.document(newSaleID).setData([
+//            "name": newSale.name,
+//            "brand": newSale.brand,
+//            "size": newSale.size,
+//            "color": newSale.color,
+//            "price": newSale.price,
+//            "id": newSale.id,
+//            "quantity": newSale.quantity
+//        ])
+        
+//        salesRef.document(newSale).setData([
+//            "name": self.name,
+//            "brand": self.brand,
+//            "size": .self.currentSelection[0],
+//            "color": self.currentSelection[1],
+//            "price": self.price,
+//            "id": "0",
+//            "quantity": quantity
+        
+//        ])
         
     }
     //cancel
@@ -119,6 +222,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.setCurrentSelection()
         }
     }
+    
+    
     // Setting initial picker selection.
     func setCurrentSelection () {
         for i in 0..<3 { // range 3
@@ -127,6 +232,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         print("Initial Selection:", currentSelection)
     }
 
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
     }
@@ -147,12 +254,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // The parameter named row and component represents what was selected.
         
         // format -> ["Brand", "Name","Color","Size"]
-        
         self.currentSelection[component] = self.pickerData[component][row]
-
         print("Current Selection:", self.currentSelection)
-        
-        
     }
-    
 }
