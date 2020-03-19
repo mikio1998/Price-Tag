@@ -55,23 +55,25 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             if let document = document, document.exists {
                 // JUST ADD QUANTITY
                 print("Sale already exists.")
-                document.data().
+                //document.data().
+                
+                
                 // Get initial quantity.
-                existSale.updateData(<#T##fields: [AnyHashable : Any]##[AnyHashable : Any]#>)
+                //existSale.updateData(["quantity" : FieldValue.increment(quantity)])
                 
                 // Add new quantity.
-                existSale.updateData([
-                    "quantity": true
-                ]) { err in
-                    if let err = err {
-                        print("Error updating document: \(err)")
-                    } else {
-                        print("Document successfully updated")
-                    }
-                }
+//                existSale.updateData([
+//                    "quantity": FieldValue.increment(Int64(quantity))
+//                ]) { err in
+//                    if let err = err {
+//                        print("Error updating document: \(err)")
+//                    } else {
+//                        print("Document successfully updated")
+//                    }
+//                }
                 
                 
-            } else {
+            } else { // Fresh DB entry.
                 
                 let newSale =
                     Product(name: self.name,
@@ -125,9 +127,17 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //            "quantity": quantity
         
 //        ])
+        self.dismiss(animated: true) {
+            
+        }
         
     }
     //cancel
+    
+    // MARK: BUG: CELL DELETION NOT WORKING
+    // RESOLUTION: You need to add the new entry to the SalesView data Array.
+    
+    
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

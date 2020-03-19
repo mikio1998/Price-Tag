@@ -36,7 +36,6 @@ class ManualAddViewController: UIViewController {
         // Get the cells.
         // Should iterate in order.
         for cell in 0..<4 {
-            print("b0ss")
             let ndx = IndexPath(row:cell, section: 0)
             let cell = tableView.cellForRow(at: ndx) as! ManualNameCell
             print("\(cell.manualPlaceholder.text!)")

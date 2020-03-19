@@ -183,7 +183,6 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
         if editingStyle == .delete {
-            
             //self.salesArray.remove(at: indexPath.row)
             
             // Get the cell ID (before removal from salesArray)
@@ -201,6 +200,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
+                    print(self.salesArray)
                     print("Document successfully removed!")
                 }
             }
