@@ -41,6 +41,7 @@ class SalesViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        //self.tableView.reloadData()
     }
     
     // MARK: Refresh functionality under construction.
@@ -94,9 +95,10 @@ class SalesViewController: UIViewController {
                     let Quantity = diff.document.get("quantity") as! Int
                     
                     let tempSale = Product(name: Name, brand: Brand, size: Size, color: Color, price: Price, id: Id, quantity: Quantity)
-                    
-                    
+                    print("?????")
+                    print(self.salesArray)
                     self.salesArray.append(tempSale)
+                    print(self.salesArray)
                     self.tableView.reloadData()
                 }
                 
@@ -188,6 +190,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
             // Get the cell ID (before removal from salesArray)
             // indexPath.row works because array is in same order.
             let ID = salesArray[indexPath.row].id
+            print("The ID", ID)
             
             let salesTrackDB = Firestore.firestore()
             let salesRef = salesTrackDB.collection("sales track")

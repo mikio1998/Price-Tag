@@ -81,7 +81,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                             size: self.currentSelection[0],
                             color: self.currentSelection[1],
                             price: self.price,
-                            id: "0",
+                            //id: "0",
+                            id: newSaleID,
                             quantity: quantity)
                 print(newSale)
                 
