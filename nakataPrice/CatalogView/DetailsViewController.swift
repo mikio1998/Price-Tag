@@ -218,9 +218,9 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         colorArray.append(colorInstance)
                     }
                 }
-                
-                self.pickerData.append(sizeArray)
                 self.pickerData.append(colorArray)
+                self.pickerData.append(sizeArray)
+                //self.pickerData.append(colorArray)
                 self.pickerData.append(quantityArray)
                 
                 // Dammn, I just spent a week solving this problem... one line.
