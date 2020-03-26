@@ -39,6 +39,8 @@
 //        }
 //
 //
+//
+//
 //        //a2
 //        productDB.collection("products").document("hk-anorak-coyotebrown-m").setData([
 //        "name": "Packable Anorak",
@@ -74,7 +76,7 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
+//
 //        //a4
 //        productDB.collection("products").document("hk-anorak-coyotebrown-xl").setData([
 //        "name": "Packable Anorak",
@@ -94,6 +96,9 @@
 //        }
 //
 //
+//
+//
+//
 //        productDB.collection("products").document("hk-anorak-coyotebrown-xs").setData([
 //        "name": "Packable Anorak",
 //        "brand": "HELIKON-TEX",
@@ -110,11 +115,11 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
-
-
-        // MARK: B's
-
+//
+//
+//
+//         MARK: B's
+//
 //        // b1
 //        productDB.collection("products").document("hk-anorak-shadowgrey-s").setData([
 //        "name": "Packable Anorak",
@@ -169,7 +174,7 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
+//
 //        //b4
 //        productDB.collection("products").document("hk-anorak-shadowgrey-xl").setData([
 //        "name": "Packable Anorak",
@@ -187,7 +192,7 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
+//
 //        //b5
 //        productDB.collection("products").document("hk-anorak-shadowgrey-xs").setData([
 //        "name": "Packable Anorak",
@@ -208,7 +213,7 @@
 //
 //
 //
-        // MARK: C's
+//         MARK: C's
 //
 //        // c1
 //        productDB.collection("products").document("hk-wolfhound-alphagreen-s").setData([
@@ -300,10 +305,10 @@
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        
-        // MARK: D's
-        
+//
+//
+//         MARK: D's
+//
 //        // d1
 //        productDB.collection("products").document("hk-anorak-black-s").setData([
 //        "name": "Packable Anorak",
@@ -376,8 +381,8 @@
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        //d5
+//
+//        d5
 //        productDB.collection("products").document("hk-anorak-black-xs").setData([
 //        "name": "Packable Anorak",
 //        "brand": "HELIKON-TEX",
@@ -394,9 +399,9 @@
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        
-        // MARK: E's
+//
+//
+//         MARK: E's
 //
 //        // e1
 //        productDB.collection("products").document("hk-wolfhound-od-s").setData([
@@ -488,10 +493,10 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
-
-        // MARK: F's
-
+//
+//
+//         MARK: F's
+//
 //        // f1
 //        productDB.collection("products").document("hk-anorak-camogrom-s").setData([
 //        "name": "Packable Anorak",
@@ -546,7 +551,7 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
+//
 //        //f4
 //        productDB.collection("products").document("hk-anorak-camogrom-xl").setData([
 //        "name": "Packable Anorak",
@@ -564,7 +569,7 @@
 //                print("Document successfully written!")
 //            }
 //        }
-
+//
 //        //f5
 //        productDB.collection("products").document("hk-anorak-camogrom-xs").setData([
 //        "name": "Packable Anorak",
@@ -582,10 +587,10 @@
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        
-        
-        
+//
+//
+//
+//
 //    }
-    
-    // MARK: till here
+//
+//    // MARK: till here
