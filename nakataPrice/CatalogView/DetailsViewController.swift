@@ -26,7 +26,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         var brandName: String = "brand"
         var quantity: Int = Int(self.currentSelection[2]) ?? 1
         
-        // Naming adjustment for writing to DB.
+        // MARK: Naming adjustment for writing to DB. 
         if self.brand == "HELIKON-TEX" {
             brandName = "hk"
         } else if self.brand == "Alpha Industries" {

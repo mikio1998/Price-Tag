@@ -62,13 +62,13 @@ class SalesViewController: UIViewController {
     func sendToDB() {
         let productDB = Firestore.firestore()
         
-//        // MARK: khaki
-//        productDB.collection("products").document("hk-defendermk2tacticalshirtlongsleeve-khaki-s").setData([
-//        "name": "Defender MK2 Tactical Shirt Long Sleeve",
+        // MARK: khaki
+//        productDB.collection("products").document("hk-urbantacticalshorts-khaki-s").setData([
+//        "name": "Urban Tactical Shorts",
 //        "brand": "HELIKON-TEX",
 //        "size": "S",
 //        "color": "Khaki",
-//        "price": "5800",
+//        "price": "5900",
 //        "id": "0",
 //        "quantity": 1
 //        ])
@@ -79,7 +79,8 @@ class SalesViewController: UIViewController {
 //                print("Document successfully written!")
 //            }
 //        }
-//
+        
+
         
         
         
