@@ -161,6 +161,8 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
             vc.brand = productArray[selectedIndex]["brand"]!
             vc.name = productArray[selectedIndex]["name"]!
             
+            // .size is already a method. 
+            vc.size2 = productArray[selectedIndex]["size"]!
             vc.color = productArray[selectedIndex]["color"]!
             vc.price = productArray[selectedIndex]["price"]!
             

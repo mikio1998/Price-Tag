@@ -75,11 +75,16 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 
             } else { // Fresh DB entry.
                 
+                
+                // MARK: SIZE AND COLOR REVERSE ISSUE
+                
                 let newSale =
                     Product(name: self.name,
                             brand: self.brand,
+                            //size: self.size,
                             size: self.currentSelection[0],
-                            color: self.currentSelection[1],
+                            //color: self.currentSelection[1],
+                            color: self.color,
                             price: self.price,
                             //id: "0",
                             id: newSaleID,
@@ -143,10 +148,12 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: INITIALIZE SIZE COLOR
     var brand : String = ""
     var name : String = ""
     var price : String = ""
     var color : String = ""
+    var size2 : String = ""
         
     var pickerData: [[String]] = []
     
@@ -164,6 +171,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.nameLabel.text = self.name
         self.brandLabel.text = self.brand
+        
         
 //        firestoreToArray(brand: self.brand, name: self.name)
         //self.currentSelection[0] ==
