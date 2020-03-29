@@ -141,8 +141,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.brand, self.name, self.color, self.size2, "Innformation")
-        self.image.image = UIImage(named: "\(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
-        //self.image.image = UIImage(named: "\(self.brand) \(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        //self.image.image = UIImage(named: "\(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        self.image.image = UIImage(named: "\(self.brand) \(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
         firestoreToArray(brand: self.brand, name: self.name)
         
         self.picker.delegate = self
