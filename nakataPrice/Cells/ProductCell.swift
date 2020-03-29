@@ -30,7 +30,7 @@ class productCell: UITableViewCell {
         sizeProduct.text = sale.size
         colorProduct.text = sale.color
         quantity.text = "\(sale.quantity)"
-        imageProduct.image = UIImage(named: "\(sale.name) \(sale.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        imageProduct.image = UIImage(named: "\(sale.brand) \(sale.name) \(sale.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
         print("\(sale.name) \(sale.color) \(sale.size)", "x")
         
         print("\(sale.quantity)")
