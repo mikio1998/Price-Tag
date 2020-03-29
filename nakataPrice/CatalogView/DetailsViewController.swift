@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             brandName = "alpha"
         } else if self.brand == "Houston" {
             brandName = "hou"
-        } else if self.brand == "Valley Apparell" {
+        } else if self.brand == "Valley Apparel" {
             brandName = "va"
         }
         
@@ -137,10 +137,12 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // brand-name-color-size
     // Attach brand in later process.
     var currentSelection: [String] = ["Color","Size","Quantity"]
-    
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.brand, self.name, self.color, self.size2, "Innformation")
         self.image.image = UIImage(named: "\(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        //self.image.image = UIImage(named: "\(self.brand) \(self.name) \(self.color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
         firestoreToArray(brand: self.brand, name: self.name)
         
         self.picker.delegate = self

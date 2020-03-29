@@ -124,11 +124,12 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection Cell", for: indexPath) as! SampleCell
         
+        let brandData = productArray[indexPath.row]["brand"] ?? "Brand"
         let nameData = productArray[indexPath.row]["name"] ?? "Product"
         let colorData = productArray[indexPath.row]["color"] ?? "Black"
         print("\(nameData) \(colorData)")
 
-        cell.setLabelandImage(label: nameData, color: colorData)
+        cell.setLabelandImage(brand: brandData,name: nameData, color: colorData)
         return cell
     }
     
@@ -166,8 +167,7 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
             vc.color = productArray[selectedIndex]["color"]!
             vc.price = productArray[selectedIndex]["price"]!
             
-//            vc.image = foodImage[selectedIndex]
-//            vc.name = foodKind[selectedIndex]
+
             // MARK: ISsue here!!!
             print(vc.name, "PRODUCT", selectedIndex, "selected INDEX")
             

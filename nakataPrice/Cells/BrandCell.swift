@@ -15,12 +15,15 @@ class SampleCell: UICollectionViewCell {
     
     @IBOutlet weak var cellLabel: UILabel!
     // Without image
-    func setLabelandImage(label: String, color: String) {
-        cellLabel.text = label
-        cellImage.image = UIImage(named: "\(label) \(color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
-    }
-//    func setLabelandImage(label: String, image: UIImage) {
+//    func setLabelandImage(label: String, color: String) {
 //        cellLabel.text = label
-//        cellImage.image = image
+//        cellImage.image = UIImage(named: "\(label) \(color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
 //    }
+    func setLabelandImage(brand: String, name: String, color: String) {
+        cellLabel.text = name
+        cellImage.image = UIImage(named: "\(brand) \(name) \(color)", in: Bundle(for: type(of: self)), compatibleWith: nil)
+    }
+
+    
+    
 }
