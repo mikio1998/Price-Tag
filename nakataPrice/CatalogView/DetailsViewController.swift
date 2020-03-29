@@ -77,19 +77,20 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 
                 
                 // MARK: SIZE AND COLOR REVERSE ISSUE
-                
+                // currentSelection = ["color", "size", "quantity"]
                 let newSale =
                     Product(name: self.name,
                             brand: self.brand,
                             //size: self.size,
-                            size: self.currentSelection[0],
-                            //color: self.currentSelection[1],
-                            color: self.color,
+                            //size: self.currentSelection[0],
+                            size: self.currentSelection[1],
+                            color: self.currentSelection[0],
+                            //color: self.color,
                             price: self.price,
                             //id: "0",
                             id: newSaleID,
                             quantity: quantity)
-                print(newSale)
+                print("NEW SALE ==>",newSale)
                 
                 salesRef.document(newSaleID).setData([
                     "name": newSale.name,
@@ -102,37 +103,6 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 ])
             }
         }
-        
-//        let newSale =
-//            Product(name: self.name,
-//                    brand: self.brand,
-//                    size: self.currentSelection[0],
-//                    color: self.currentSelection[1],
-//                    price: self.price,
-//                    id: "0",
-//                    quantity: quantity)
-//        print(newSale)
-//
-//        salesRef.document(newSaleID).setData([
-//            "name": newSale.name,
-//            "brand": newSale.brand,
-//            "size": newSale.size,
-//            "color": newSale.color,
-//            "price": newSale.price,
-//            "id": newSale.id,
-//            "quantity": newSale.quantity
-//        ])
-        
-//        salesRef.document(newSale).setData([
-//            "name": self.name,
-//            "brand": self.brand,
-//            "size": .self.currentSelection[0],
-//            "color": self.currentSelection[1],
-//            "price": self.price,
-//            "id": "0",
-//            "quantity": quantity
-        
-//        ])
         self.dismiss(animated: true) {
             
         }
@@ -159,7 +129,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // brand-name-color-size
     // Attach brand in later process.
-    var currentSelection: [String] = ["Name","Color","Size"]
+    var currentSelection: [String] = ["Color","Size","Quantity"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,11 +141,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.nameLabel.text = self.name
         self.brandLabel.text = self.brand
-        
-        
-//        firestoreToArray(brand: self.brand, name: self.name)
-        //self.currentSelection[0] ==
-        
+
     }
     
     // MARK: Reading data from Firestore
@@ -242,10 +208,10 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    
+    // MARK: func setCurrentSelection
     // Setting initial picker selection.
     func setCurrentSelection () {
-        for i in 0..<3 { // range 3
+        for i in 0..<3 { // range 3 (for the 3 picker columns)
             self.currentSelection[i] = self.pickerData[i][0]
         }
         print("Initial Selection:", currentSelection)
