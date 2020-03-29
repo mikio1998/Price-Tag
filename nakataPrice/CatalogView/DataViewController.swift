@@ -195,7 +195,7 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
     // Denominator: cells per row
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let yourWidth = -3 + (collectionView.bounds.width)/2.0
-        let yourHeight = yourWidth
+        let yourHeight = yourWidth * 1.15
         return CGSize(width: yourWidth, height: yourHeight)
     }
     
