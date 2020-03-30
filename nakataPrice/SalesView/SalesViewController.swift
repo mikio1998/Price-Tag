@@ -256,13 +256,22 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             label.text = "ほか"
         }
-        
-        //label.text = "３階"
+
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        label.textAlignment = .center
         label.backgroundColor = UIColor.lightGray
         return label
     }
+    
+    
+    // Section Header Sizing
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 37.0
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 2.0
     }
     
     
