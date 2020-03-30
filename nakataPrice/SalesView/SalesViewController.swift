@@ -271,7 +271,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2.0
+        return 2
     }
     
     
