@@ -25,6 +25,7 @@ class SalesViewController: UIViewController {
                                      "Greyman Tactical Jeans",
                                      "Outdoor Tactical Pants",
                                      "Urban Tactical Pants",
+                                     "Urban Tactical Pants Canvas",
                                      "Urban Tactical Shorts",
                                      "Outdoor Tactical Pants Lite"
                                     ]
@@ -238,7 +239,6 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
 
-        
         // Assign array data to each tableview cell.
         //let sale = salesArray[indexPath.row]
         //cell.setSale(sale: sale)
@@ -250,7 +250,14 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: Sections
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "３階"
+        
+        if section == 0 {
+            label.text = "３階"
+        } else {
+            label.text = "ほか"
+        }
+        
+        //label.text = "３階"
         label.backgroundColor = UIColor.lightGray
         return label
     }
@@ -266,32 +273,90 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
         if editingStyle == .delete {
-            //self.salesArray.remove(at: indexPath.row)
+
             
-            // Get the cell ID (before removal from salesArray)
-            // indexPath.row works because array is in same order.
-            let ID = salesArray[indexPath.row].id
-            print("The ID", ID)
             
-            let salesTrackDB = Firestore.firestore()
-            let salesRef = salesTrackDB.collection("sales track")
-            
-            // First delete from array.
-            self.salesArray.remove(at: indexPath.row)
-            
-            // Second delete from DB
-            salesRef.document(ID).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print(self.salesArray)
-                    print("Document successfully removed!")
+            if indexPath.section == 0 {     // deleting from thirdFloor
+                // Get the cell ID (before removal from salesArray)
+                // indexPath.row works because array is in same order.
+
+                let ID = thirdFloorArray[indexPath.row].id
+                print("The ID", ID)
+                
+                let salesTrackDB = Firestore.firestore()
+                let salesRef = salesTrackDB.collection("sales track")
+                
+                // First delete from array.
+                //let target = IndexPath(row: indexPath.row, section: 0)
+                self.thirdFloorArray.remove(at: indexPath.row)
+                
+                // Second delete from DB
+                salesRef.document(ID).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print(self.thirdFloorArray)
+                        print("Document successfully removed!")
+                    }
                 }
+                
+                // delete from tableView
+                tableView.deleteRows(at: [indexPath], with: .bottom)
+                tableView.reloadData()
+                
+            } else {                        // deleting from otherFloor
+                
+                let ID = otherFloorArray[indexPath.row].id
+                print("The ID", ID)
+                
+                let salesTrackDB = Firestore.firestore()
+                let salesRef = salesTrackDB.collection("sales track")
+                
+                // First delete from array.
+                self.otherFloorArray.remove(at: indexPath.row)
+                
+                // Second delete from DB
+                salesRef.document(ID).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print(self.otherFloorArray)
+                        print("Document successfully removed!")
+                    }
+                }
+                
+                // delete from tableView
+                tableView.deleteRows(at: [indexPath], with: .bottom)
+                tableView.reloadData()
             }
             
-            // delete from tableView
-            tableView.deleteRows(at: [indexPath], with: .bottom)
-            tableView.reloadData()
+            
+            
+//            // Get the cell ID (before removal from salesArray)
+//            // indexPath.row works because array is in same order.
+//
+//            let ID = salesArray[indexPath.row].id
+//            print("The ID", ID)
+//
+//            let salesTrackDB = Firestore.firestore()
+//            let salesRef = salesTrackDB.collection("sales track")
+//
+//            // First delete from array.
+//            self.salesArray.remove(at: indexPath.row)
+//
+//            // Second delete from DB
+//            salesRef.document(ID).delete() { err in
+//                if let err = err {
+//                    print("Error removing document: \(err)")
+//                } else {
+//                    print(self.salesArray)
+//                    print("Document successfully removed!")
+//                }
+//            }
+//
+//            // delete from tableView
+//            tableView.deleteRows(at: [indexPath], with: .bottom)
+//            tableView.reloadData()
         }
     }
     
