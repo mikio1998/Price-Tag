@@ -45,8 +45,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Preparing new DB entry ID. Adjusting for proper DB format.
         let newSaleID = brandName.replacingOccurrences(of: " ", with: "")     // brand
             + "-" + "\(self.name.lowercased().replacingOccurrences(of: " ", with: ""))" // name
-            + "-" + "\(self.currentSelection[1].lowercased().replacingOccurrences(of: " ", with: ""))" // color
-            + "-" + "\(self.currentSelection[0].lowercased().replacingOccurrences(of: " ", with: ""))" // size
+            + "-" + "\(self.currentSelection[0].lowercased().replacingOccurrences(of: " ", with: ""))" // color
+            + "-" + "\(self.currentSelection[1].lowercased().replacingOccurrences(of: " ", with: ""))" // size
         print(newSaleID)
         
         // Check if newSaleID already exists in Sales Track.

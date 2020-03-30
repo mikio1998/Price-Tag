@@ -17,7 +17,24 @@ class SalesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    // MARK: Arrays
+    // Products of floor ->
+    var thirdFloorItems: [String] = ["ACU Jacket",
+                                     "ACU Pants",
+                                     "Covert Tactical Pants",
+                                     "Greyman Tactical Jeans",
+                                     "Outdoor Tactical Pants",
+                                     "Urban Tactical Pants",
+                                     "Urban Tactical Shorts",
+                                     "Outdoor Tactical Pants Lite"
+                                    ]
+    
+    // Firestore data ->
     var salesArray: [Product] = []
+    
+    var thirdFloorArray: [Product] = [] // thirdFloor -> tableView section 1
+    var otherFloorArray: [Product] = [] // otherFloor -> tableView section 2
+    
     
     var refreshControl = UIRefreshControl()
     
@@ -121,10 +138,18 @@ class SalesViewController: UIViewController {
                     let Quantity = diff.document.get("quantity") as! Int
                     
                     let tempSale = Product(name: Name, brand: Brand, size: Size, color: Color, price: Price, id: Id, quantity: Quantity)
-                    print("?????")
-                    print(self.salesArray)
-                    self.salesArray.append(tempSale)
-                    print(self.salesArray)
+
+                    
+                    // Append to belonging floor array.
+                    if self.thirdFloorItems.contains(tempSale.name) { // Check product's floor
+                        self.thirdFloorArray.append(tempSale)
+                    } else {
+                        self.otherFloorArray.append(tempSale)
+                    }
+                    
+
+                    //self.salesArray.append(tempSale)
+
                     self.tableView.reloadData()
                 }
                 
@@ -192,17 +217,47 @@ class SalesViewController: UIViewController {
 extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return salesArray.count
+        if section == 0 {                       // thirdFloorArray -> Section 0
+            return self.thirdFloorArray.count
+        } else {
+            return self.otherFloorArray.count   // otherFloorArray -> Section 0
+        }
+        //return salesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Product Cell") as! productCell
         
+        
+        if indexPath.section == 0 {     // section: Third Floor
+            let sale = thirdFloorArray[indexPath.row]
+            cell.setSale(sale: sale)
+        } else {                        // section: Other Floor
+            let sale = otherFloorArray[indexPath.row]
+            cell.setSale(sale: sale)
+        }
+        
+
+        
         // Assign array data to each tableview cell.
-        let sale = salesArray[indexPath.row]
-        cell.setSale(sale: sale)
+        //let sale = salesArray[indexPath.row]
+        //cell.setSale(sale: sale)
+        
         return cell
     }
+    
+    
+    // MARK: Sections
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "３階"
+        label.backgroundColor = UIColor.lightGray
+        return label
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     
     
     // MARK: Cell Deletion
