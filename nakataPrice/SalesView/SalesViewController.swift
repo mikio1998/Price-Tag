@@ -10,8 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+protocol firestoreArrayProtocol {
+    func firestoreToArray()
+    
 
-class SalesViewController: UIViewController {
+}
+
+
+class SalesViewController: UIViewController, firestoreArrayProtocol {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,6 +37,14 @@ class SalesViewController: UIViewController {
                                     ]
     
     // Firestore data ->
+    struct GlobalVariable{
+//        static var salesArray: [Product] = []
+//        static var thirdFloorArray: [Product] = []
+//        static var otherFloorArray: [Product] = []
+        static var myString = "Hello"
+    }
+
+    
     var salesArray: [Product] = []
     
     var thirdFloorArray: [Product] = [] // thirdFloor -> tableView section 1
@@ -59,7 +73,7 @@ class SalesViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        //self.tableView.reloadData()
+
     }
     
     // MARK: Refresh functionality under construction.
@@ -97,11 +111,7 @@ class SalesViewController: UIViewController {
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        
-        
-        
-        
+           
     }
 
     
@@ -142,6 +152,7 @@ class SalesViewController: UIViewController {
 
                     
                     // Append to belonging floor array.
+                    
                     if self.thirdFloorItems.contains(tempSale.name) { // Check product's floor
                         self.thirdFloorArray.append(tempSale)
                     } else {
@@ -160,16 +171,30 @@ class SalesViewController: UIViewController {
                 // I found the Product in the array, and manually added +1.
                 if (diff.type == .modified) {
                     print("Modified sale: \(diff.document.data())")
-                    print(diff.document.data().index(forKey: "id")!)
-                    //print(diff.document.get("id"))
-                    for i in self.salesArray {
-                        if i.id == diff.document.get("id") as! String {
-                            i.quantity += 1
+                    
+                    let Name = diff.document.get("name") as! String
+                    let Quantity = diff.document.get("quantity") as! Int
+                    
+                    //print(self.thirdFloorArray, "array 33")
+                    if self.thirdFloorItems.contains(Name) { // Check product's floor
+                        // find it on thirdFLoorArray
+                        for element in self.thirdFloorArray {
+                            if element.name == Name {
+                                element.quantity = Quantity
+                                break
+                            }
+                         }
+                    } else {
+                        for element in self.otherFloorArray {
+                           if element.name == Name {
+                               element.quantity = Quantity
+                               break
+                           }
                         }
                     }
-                    print(self.salesArray)
                     self.tableView.reloadData()
                 }
+                
                 }
             }
 

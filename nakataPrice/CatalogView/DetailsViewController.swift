@@ -11,7 +11,13 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
+
 class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    // call firestoreToArray when adding ++ sale quantity.
+    var delegate: firestoreArrayProtocol?
     
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var image: UIImageView!
@@ -57,28 +63,56 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         
     
-            // MARK: Tryna increment quantity.
+        // MARK: Tryna increment quantity.
         existSale.getDocument { (document, error) in
-            if let document = document, document.exists {
-                // JUST ADD QUANTITY
+            if let document = document, document.exists {  // If it exists, Just Add quantity!
+                
                 print("Sale already exists.")
-                //document.data().
                 
+                let currentQuantity = document.get("quantity") as! Int
+                print("Current Quantity", currentQuantity )
+                let newQuantity = currentQuantity + quantity
+                print("New Quantity", newQuantity)
+                existSale.updateData(["quantity" : newQuantity])
+                self.delegate?.firestoreToArray()
                 
-                // Get initial quantity.
-                //existSale.updateData(["quantity" : FieldValue.increment(quantity)])
-                
-                // Add new quantity.
-//                existSale.updateData([
-//                    "quantity": FieldValue.increment(Int64(quantity))
-//                ]) { err in
+
+//                let newSale =
+//                    Product(name: self.name,
+//                            brand: self.brand,
+//                            size: self.currentSelection[1],
+//                            color: self.currentSelection[0],
+//                            price: self.price,
+//                            id: newSaleID,
+//                            quantity: newQuantity)  // New Quantity
+//                print("NEW SALE ==>",newSale)
+//
+//                //let salesVC: SalesViewController = SalesViewController
+//                SalesViewController.GlobalVariable.myString = "goodbye"
+//                print(SalesViewController.GlobalVariable.myString)
+//
+//
+//                // Delete old sale.
+//                salesRef.document(newSaleID).delete() { err in
 //                    if let err = err {
-//                        print("Error updating document: \(err)")
+//                        print("Error removing document: \(err)")
 //                    } else {
-//                        print("Document successfully updated")
+//                        //print(self.thirdFloorArray)
+//                        print("Document successfully removed!")
 //                    }
 //                }
+//
                 
+//                // Replace the old sale.
+//                salesRef.document(newSaleID).setData([
+//                    "name": newSale.name,
+//                    "brand": newSale.brand,
+//                    "size": newSale.size,
+//                    "color": newSale.color,
+//                    "price": newSale.price,
+//                    "id": newSale.id,
+//                    "quantity": newSale.quantity
+//                ])
                 
             } else { // Fresh DB entry.
                 
