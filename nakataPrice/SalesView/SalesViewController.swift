@@ -30,8 +30,10 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
                                      "Outdoor Tactical Pants",
                                      "Urban Tactical Pants",
                                      "Urban Tactical Pants Canvas",
+                                     "Urban Tactical Pants Dark Blue 2018",
                                      "Urban Tactical Shorts",
-                                     "Outdoor Tactical Pants Lite"
+                                     "Outdoor Tactical Pants Lite",
+                                     "M65 Pants"
                                     ]
     
     // Firestore data ->
@@ -93,12 +95,12 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
         let productDB = Firestore.firestore()
         
         //MARK: khaki
-//        productDB.collection("products").document("hou-rainparka-navy-38").setData([
-//        "name": "Rain Parka",
+//        productDB.collection("products").document("hou-vietnamwarnhatrangsouvenirjacket-khaki-m").setData([
+//        "name": "Vietnam War Nhatrang Souvenir Jacket",
 //        "brand": "HOUSTON",
-//        "size": "38",
-//        "color": "Navy",
-//        "price": "28800",
+//        "size": "M",
+//        "color": "Khaki",
+//        "price": "19800",
 //        "id": "0",
 //        "quantity": 1
 //        ])
@@ -109,14 +111,7 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
 //                print("Document successfully written!")
 //            }
 //        }
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         
         
