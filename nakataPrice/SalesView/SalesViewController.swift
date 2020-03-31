@@ -10,12 +10,10 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
 protocol firestoreArrayProtocol {
     func firestoreToArray()
-    
-
 }
-
 
 class SalesViewController: UIViewController, firestoreArrayProtocol {
     
