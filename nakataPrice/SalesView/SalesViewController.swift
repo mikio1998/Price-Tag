@@ -306,6 +306,8 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     
+    
+    
     // MARK: Cell Deletion
     // MARK: Delete the cell, also from DB.
 

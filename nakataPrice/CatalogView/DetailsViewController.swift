@@ -25,7 +25,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     
-
+    @IBOutlet weak var priceLabel: UILabel!
+    
     // save
     @IBAction func save(_ sender: Any) {
     
@@ -171,6 +172,9 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // brand-name-color-size
     // Attach brand in later process.
     var currentSelection: [String] = ["Color","Size","Quantity"]
+    
+    
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,6 +188,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.nameLabel.text = self.name
         self.brandLabel.text = self.brand
+        self.priceLabel.text = "¥" + self.price
 
     }
     
@@ -276,6 +281,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return pickerData[component][row]
     }
     
+
+    
     // Capture the picker selection view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
@@ -284,5 +291,15 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // format -> ["Brand", "Name","Color","Size"]
         self.currentSelection[component] = self.pickerData[component][row]
         print("Current Selection:", self.currentSelection)
+        
+
+        
+        self.image.image = UIImage(named: "\(self.brand) \(self.name) \(currentSelection[0])", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        //print(self.pickerData[0][row])
+        
+        
     }
+    
+    
+    
 }
