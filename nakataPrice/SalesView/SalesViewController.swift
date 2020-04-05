@@ -33,7 +33,11 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
                                      "Urban Tactical Pants Dark Blue 2018",
                                      "Urban Tactical Shorts",
                                      "Outdoor Tactical Pants Lite",
-                                     "M65 Pants"
+                                     "M65 Pants",
+                                     
+                                     "Jungle Fatigue Pants 1969"
+                                     
+                                     
                                     ]
     
     // Firestore data ->
@@ -95,12 +99,12 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
         let productDB = Firestore.firestore()
         
         //MARK: khaki
-//        productDB.collection("products").document("avi-ma1-navy-m").setData([
-//        "name": "MA 1",
-//        "brand": "AVIREX",
-//        "size": "M",
-//        "color": "Navy",
-//        "price": "18000",
+//        productDB.collection("products").document("ses-chinokhakipants-khaki-28x30").setData([
+//        "name": "Chino Khaki Pants",
+//        "brand": "SESSLER",
+//        "size": "28x30",
+//        "color": "Khaki",
+//        "price": "4500",
 //        "id": "0",
 //        "quantity": 1
 //        ])
@@ -119,13 +123,6 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
         
         
         
-        
-
-        
-        
-        
-        
-           
     }
 
     
