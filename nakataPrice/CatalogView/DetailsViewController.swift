@@ -44,7 +44,9 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             brandName = "va"
         } else if self.brand == "AVIREX" {
             brandName = "avi"
-        } 
+        } else if self.brand == "SESSLER" {
+            brandName = "ses"
+        }
         
         
         else {
