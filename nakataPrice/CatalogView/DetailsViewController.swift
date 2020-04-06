@@ -46,6 +46,8 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             brandName = "avi"
         } else if self.brand == "SESSLER" {
             brandName = "ses"
+        } else if self.brand == "TRU-SPEC" {
+            brandName = "tru"
         }
         
         
@@ -210,7 +212,7 @@ class DetailsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //        let colorArray = []
         var sizeArray: [String] = []
         var colorArray: [String] = []
-        let quantityArray: [String] = ["1", "2", "3", "4", "5", "6", "7"]
+        let quantityArray: [String] = ["1", "2", "3"]
 
         // Filter by both product BRAND and NAME
         // Use brand, to prevent same-name-diff-brand risk.

@@ -99,12 +99,12 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
         let productDB = Firestore.firestore()
         
         //MARK: khaki
-//        productDB.collection("products").document("ses-chinokhakipants-khaki-28x30").setData([
-//        "name": "Chino Khaki Pants",
-//        "brand": "SESSLER",
-//        "size": "28x30",
-//        "color": "Khaki",
-//        "price": "4500",
+//        productDB.collection("products").document("tru-bduxtremeshirt-atacsfgx-sr").setData([
+//        "name": "BDU XTREME Shirt",
+//        "brand": "TRU-SPEC",
+//        "size": "S R",
+//        "color": "A TACS FGX",
+//        "price": "12800",
 //        "id": "0",
 //        "quantity": 1
 //        ])
@@ -115,6 +115,20 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
 //                print("Document successfully written!")
 //            }
 //        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         

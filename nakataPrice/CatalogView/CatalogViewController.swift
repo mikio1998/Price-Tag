@@ -24,7 +24,7 @@ class CatalogViewController: UIViewController {
     //  3 => Houston
     //  4 => Helikon
     //let dataSource = ["Alpha Industries","Valley Apparel","HOUSTON","HELIKON-TEX"]
-    let dataSource = ["Alpha Industries","HELIKON-TEX","SESSLER","HOUSTON","AVIREX","Valley Apparel"]
+    let dataSource = ["Alpha Industries","HELIKON-TEX","TRU-SPEC","SESSLER","HOUSTON","AVIREX","Valley Apparel"]
     // Page index collection
     var currentViewControllerIndex = 0
     
