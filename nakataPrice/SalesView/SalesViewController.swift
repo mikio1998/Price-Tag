@@ -35,7 +35,20 @@ class SalesViewController: UIViewController, firestoreArrayProtocol {
                                      "Outdoor Tactical Pants Lite",
                                      "M65 Pants",
                                      
-                                     "Jungle Fatigue Pants 1969"
+                                     "Jungle Fatigue Pants 1969",
+                                     
+                                     "BDU Shirt",
+                                     "BDU Shirt (MAR PAT)",
+                                     "BDU XTREME Shirt",
+                                     "MULTICAM Shirt",
+                                     
+                                     "BDU Pants",
+                                     "BDU Pants (MAR PAT)",
+                                     "BDU XTREME Pants",
+                                     "MULTICAM Pants",
+                                     
+                                     "BDU Shorts"
+                                     
                                      
                                      
                                     ]

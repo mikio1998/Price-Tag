@@ -18,7 +18,7 @@ class DataViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     // Sample Data
-    var dataArray = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19"]
+    var dataArray = ["Cell1","Cell2","Cell3","Cell4","Cell5","Cell6","Cell7","Cell8","Cell9","Cell10","Cell11","Cell12","Cell13","Cell14","Cell15","Cell16","Cell17","Cell18","Cell19","Cell20","Cell21"]
     
     // Contains all unique products per brand, from Firestore.
     var productArray = [Dictionary<String, String>]()
